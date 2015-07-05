@@ -60,6 +60,7 @@ pip install --user git+git://github.com/lukebayes/powerline
 wget https://github.com/lukebayes/powerline/raw/develop/font/PowerlineSymbols.otf \
   https://github.com/lukebayes/powerline/raw/develop/font/10-powerline-symbols.conf
 
+sudo mkdir -p /usr/share/fonts
 sudo mv PowerlineSymbols.otf /usr/share/fonts/
 sudo fc-cache -vf
 sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
