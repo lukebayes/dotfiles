@@ -41,11 +41,6 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-if [ ! -f $HOME/.ssh/github_rsa.pub ]; then
-  echo "ERROR: You must have an SSH public key at $HOME/.ssh/github_rsa.pub"
-  exit 1
-fi
-
 echo "Creating dotfiles directory at $SOURCEDIR"
 mkdir -p $SOURCEDIR
 
