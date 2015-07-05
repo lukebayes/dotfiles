@@ -4,25 +4,28 @@ set -io pipefail
 cd $HOME
 dotfiles="$HOME/src/dotfiles"
 force=""
+skipvim=false
 
 # Show help message
 show_help() {
   cat << EOF
 
-Usage: ${0##*/} [-f --help]
+Usage: ${0##*/} [-force --help --skip-vim]
 Configure a home directory for development.
 
-  -f          Force or overwrite existing files and directories
-  --help   Show this message
+  -f|--force      Force or overwrite existing files and directories
+  --skip-vim  Skip vim configuration
+  -h|--help   Show this message
 EOF
 }
 
 # Process command line options
-while getopts "f" opt; do
-  case "$opt" in
-    h) show_help exit 0;;
-    f) force="-f";;
-    ?) show_help exit 1;;
+while [ $# -gt 0 ]; do
+  case $1 in
+    -f|--force)   force="-f";       shift  ;;
+    --skip-vim)   skipvim=true;     shift  ;;
+    -h|--help)    show_help;         exit 0;;
+    *)            show_help;         exit 1;;
   esac
 done
 
@@ -45,4 +48,17 @@ do
   echo "ln $force -s $file \"$HOME/.${file##*/}\""
   ln $force -s $file "$HOME/.${file##*/}"
 done
+
+if [ $skipvim = false ]; then
+  mkdir -p $HOME/.vim/bundle
+  if [ -e "$HOME/.vim/bundle/vundle" ] && [ $force == "-f" ]; then
+    echo "Removing Vundle"
+    rm -rf $HOME/.vim/bundle/vundle
+  fi
+
+  git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/vundle
+
+  # echo "Installing provided VIM plugins"
+  vim -c "PluginInstall!" -c "q" -c "q"
+fi
 
