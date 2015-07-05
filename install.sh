@@ -89,7 +89,7 @@ if [ ! -e $HOME/src/solarized ]; then
   git clone https://github.com/lukebayes/gnome-terminal-colors-solarized.git $HOME/src/solarized || true
 fi
 # Install the Solarized terminal theme
-./src/solarized/install.sh
+$HOME/src/solarized/install.sh
 
 if [ ! -e $HOME/src/solarized-dir ]; then
   # Fetch the Solarized directory theme
@@ -99,8 +99,8 @@ fi
 ln -fs $HOME/src/solarized-dir/dircolors.256dark $HOME/.dircolors
 
 # if [ ! -e $HOME/src/solarized-vim ]; then
-  # # Fetch the Solarized vim theme
-  # git clone https://github.com/lukebayes/vim-colors-solarized.git $HOME/src/solarized-vim || true
+#   # Fetch the Solarized vim theme
+#   git clone https://github.com/lukebayes/vim-colors-solarized.git $HOME/src/solarized-vim || true
 # fi
 
 source $HOME/.bashrc
