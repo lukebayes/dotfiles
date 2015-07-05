@@ -55,8 +55,7 @@ done
 
 # Upgrade pip
 pip install -U pip
-pip install --user git+git://github.com/lukebayes/powerline
-pip install git+git://github.com/lukebayes/powerline
+pip install --user https://github.com/lukebayes/powerline
 
 wget https://github.com/lukebayes/powerline/raw/develop/font/PowerlineSymbols.otf \
   https://github.com/lukebayes/powerline/raw/develop/font/10-powerline-symbols.conf
