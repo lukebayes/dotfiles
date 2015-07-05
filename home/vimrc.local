@@ -16,26 +16,26 @@ set hlsearch
 "
 " If you do want the AlignMaps mappings, remove this section, remove
 " ~/.vim/bundle/Align, and re-run rake in maximum-awesome.
-function! s:RemoveConflictingAlignMaps()
-  if exists("g:loaded_AlignMapsPlugin")
-    AlignMapsClean
-  endif
-endfunction
-command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
-silent! autocmd VimEnter * RemoveConflictingAlignMaps
+"function! s:RemoveConflictingAlignMaps()
+  "if exists("g:loaded_AlignMapsPlugin")
+    "AlignMapsClean
+  "endif
+"endfunction
+"command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
+"silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
 
 map m :tabn<CR>
 map M :tabp<CR>
 
-let g:NERDTreeMapMenu='B'
-let $JS_CMD='node'
-hi clear SpellBad
+"let g:NERDTreeMapMenu='B'
+" let $JS_CMD='node'
+" hi clear SpellBad
 
-hi Search cterm=NONE ctermfg=Black ctermbg=Yellow
-hi Visual cterm=NONE ctermfg=Black ctermbg=Yellow
-hi MatchParen cterm=none ctermbg=green ctermfg=black
-hi CursorLine cterm=none ctermbg=Black
+" hi Search cterm=NONE ctermfg=Black ctermbg=Yellow
+" hi Visual cterm=NONE ctermfg=Black ctermbg=Yellow
+" hi MatchParen cterm=none ctermbg=green ctermfg=black
+" hi CursorLine cterm=none ctermbg=Black
 
 " hi SpellBad cterm=bold ctermfg=7 ctermbg=3 guibg=LightYellow
 " au InsertLeave * hi Cursor ctermbg=red
@@ -47,5 +47,14 @@ hi CursorLine cterm=none ctermbg=Black
 " let jshint_read = 1
 
 " Delete trailing whitespace on save
-autocmd BufWritePre *.js :%s/\s\+$//e
+" autocmd BufWritePre *.js :%s/\s\+$//e
+
+" Configure Powerline
+set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+
+" Always show statusline
+set laststatus=2
+
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=256
 
