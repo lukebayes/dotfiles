@@ -11,6 +11,6 @@ bind C-o send-prefix
 bind -t vi-copy y copy-pipe "xclip -sel clip -i"
 
 # Configure Powerline
-# source ~/.local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
-# set-option -g default-terminal "screen-256color"
+source ~/.local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
+set-option -g default-terminal "screen-256color"
 

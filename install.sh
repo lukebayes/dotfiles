@@ -3,8 +3,15 @@ set -io pipefail
 
 SOURCEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-echo "Running installation from $SOURCEDIR"
-exit 0
+# To run this script:
+# Fetch the shell script and run it.
+
+# TODO validate required binaries
+# git-core
+# python
+# python-pip
+
+echo "Running installation from $SOURCEDIR for $HOME"
 
 cd $HOME
 force=""
@@ -19,7 +26,6 @@ Usage: ${0##*/} [-force --help --skip-vim]
 Configure a home directory for development.
 
   -f|--force      Force or overwrite existing files and directories
-  --skip-apt      Skip apt-get update and installation
   --skip-vim      Skip vim configuration
   -h|--help       Show this message
 EOF
@@ -29,7 +35,6 @@ EOF
 while [ $# -gt 0 ]; do
   case $1 in
     -f|--force)   force="-f";       shift  ;;
-    --skip-apt)   skipapt=true;     shift  ;;
     --skip-vim)   skipvim=true;     shift  ;;
     -h|--help)    show_help;        exit 0 ;;
     *)            show_help;        exit 1 ;;
@@ -42,10 +47,7 @@ if [ ! -f $HOME/.ssh/github_rsa.pub ]; then
 fi
 
 echo "Creating dotfiles directory at $SOURCEDIR"
-mkdir -p "$SOURCEDIR"
-
-# Enable as final step
-# git clone https://github.com/lukebayes/dotfiles.git $SOURCEDIR
+mkdir -p $SOURCEDIR
 
 echo "Creating symlinks to $HOME from $SOURCEDIR"
 
@@ -55,14 +57,6 @@ do
   echo "ln $force -s $file \"$HOME/.${file##*/}\""
   ln $force -s $file "$HOME/.${file##*/}"
 done
-
-if [ $skipapt != false ] && [ ! shopt -oq posix ]; then
-# Install binaries
-sudo apt-get update && \
-  sudo apt-get install \
-  git-core \
-  python-pip
-fi
 
 # Upgrade pip
 pip install -U pip
@@ -90,8 +84,10 @@ if [ $skipvim = false ]; then
   vim -c "PluginInstall!" -c "q" -c "q"
 fi
 
-# Set up the Tomorrow Night shell theme
-./$SOURCEDIR/setup-theme.sh
+# Fetch the Solarized theme
+git clone git@github.com:lukebayes/gnome-terminal-colors-solarized.git $HOME/src/solarized
+# Install the Solarized theme
+./src/solarized/install.sh
 
 source $HOME/.bashrc
 
