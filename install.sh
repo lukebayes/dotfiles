@@ -84,10 +84,15 @@ if [ $skipvim = false ]; then
   vim -c "PluginInstall!" -c "q" -c "q"
 fi
 
-# Fetch the Solarized theme
+# Fetch the Solarized terminal theme
 git clone git@github.com:lukebayes/gnome-terminal-colors-solarized.git $HOME/src/solarized
-# Install the Solarized theme
+# Install the Solarized terminal theme
 ./src/solarized/install.sh
+
+# Fetch the Solarized directory theme
+git clone git@github.com:lukebayes/dircolors-solarized.git $HOME/src/solarized-dir
+# Install the Solarized directory theme
+ln -fs $HOME/src/solarized-dir/dircolors.256.dark $HOME/.dircolors
 
 source $HOME/.bashrc
 
