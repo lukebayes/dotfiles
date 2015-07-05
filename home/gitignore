@@ -1,0 +1,19 @@
+# Log support
+logs
+.log
+
+# Profiling data
+pids
+*.pid
+*.seed
+
+# Generated directories
+lib-cov
+coverage
+
+# Release artifacts
+build/release
+
+# Build dependencies
+node_modules
+

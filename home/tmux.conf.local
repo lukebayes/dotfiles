@@ -1,0 +1,12 @@
+# Add your local tmux config here
+bind-key | split-window -h
+bind-key - split-window -v
+
+# Fix hot-key to o
+unbind C-a
+set -g prefix C-o
+bind C-o send-prefix
+
+# Fix copy
+bind -t vi-copy y copy-pipe "xclip -sel clip -i"
+
