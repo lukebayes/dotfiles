@@ -3,6 +3,20 @@ set -io pipefail
 
 SOURCEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+# Fetch the Solarized terminal theme
+git clone git@github.com:lukebayes/gnome-terminal-colors-solarized.git $HOME/src/solarized || true
+# Install the Solarized terminal theme
+$HOME/src/solarized/install.sh
+
+# Fetch the Solarized directory theme
+git clone git@github.com:lukebayes/dircolors-solarized.git $HOME/src/solarized-dir || true
+# Install the Solarized directory theme
+ln -fs $HOME/src/solarized-dir/dircolors.256dark $HOME/.dircolors
+
+source $HOME/.bashrc
+
+exit 1
+
 # To run this script:
 # Fetch the shell script and run it.
 
@@ -85,14 +99,14 @@ if [ $skipvim = false ]; then
 fi
 
 # Fetch the Solarized terminal theme
-git clone git@github.com:lukebayes/gnome-terminal-colors-solarized.git $HOME/src/solarized
+git clone git@github.com:lukebayes/gnome-terminal-colors-solarized.git $HOME/src/solarized || true
 # Install the Solarized terminal theme
 ./src/solarized/install.sh
 
 # Fetch the Solarized directory theme
-git clone git@github.com:lukebayes/dircolors-solarized.git $HOME/src/solarized-dir
+git clone git@github.com:lukebayes/dircolors-solarized.git $HOME/src/solarized-dir || true
 # Install the Solarized directory theme
-ln -fs $HOME/src/solarized-dir/dircolors.256.dark $HOME/.dircolors
+ln -fs $HOME/src/solarized-dir/dircolors.256dark $HOME/.dircolors
 
 source $HOME/.bashrc
 
