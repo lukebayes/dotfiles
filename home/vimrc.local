@@ -4,17 +4,9 @@ set nocursorline " don't highlight current line
 inoremap jj <ESC>
 
 " highlight search
-"set hlsearch
-"nmap <leader>hl :let @/ = ""<CR>
+set hlsearch
 
-" gui settings
-if (&t_Co == 256 || has('gui_running'))
-  if ($TERM_PROGRAM == 'iTerm.app')
-    colorscheme solarized
-  else
-    colorscheme desert
-  endif
-endif
+"nmap <leader>hl :let @/ = ""<CR>
 
 " Disambiguate ,a & ,t from the Align plugin, making them fast again.
 "
@@ -33,4 +25,27 @@ command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
 silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
 
+map m :tabn<CR>
+map M :tabp<CR>
+
+let g:NERDTreeMapMenu='B'
+let $JS_CMD='node'
+hi clear SpellBad
+
+hi Search cterm=NONE ctermfg=Black ctermbg=Yellow
+hi Visual cterm=NONE ctermfg=Black ctermbg=Yellow
+hi MatchParen cterm=none ctermbg=green ctermfg=black
+hi CursorLine cterm=none ctermbg=Black
+
+" hi SpellBad cterm=bold ctermfg=7 ctermbg=3 guibg=LightYellow
+" au InsertLeave * hi Cursor ctermbg=red
+" au InsertEnter * hi Cursor ctermbg=green
+
+" let g:syntastic_javascript_jshint_args='--config
+" /Users/lukebayes/Projects/Krypton/experimental/.jshintrc'
+" let g:syntastic_javascript_checkers = ['jshint']
+" let jshint_read = 1
+
+" Delete trailing whitespace on save
+autocmd BufWritePre *.js :%s/\s\+$//e
 
