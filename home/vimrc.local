@@ -28,7 +28,7 @@ set hlsearch
 map m :tabn<CR>
 map M :tabp<CR>
 
-"let g:NERDTreeMapMenu='B'
+let g:NERDTreeMapMenu='B'
 " let $JS_CMD='node'
 " hi clear SpellBad
 
