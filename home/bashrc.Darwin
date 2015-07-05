@@ -1,0 +1,10 @@
+# The orginal version is saved in .bash_profile.pysave
+export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
+alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --allow-file-access-from-files"
+
+# TODO: Set up git completion
+# source $HOME/bin/git-completion.bash
+

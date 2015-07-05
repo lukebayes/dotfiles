@@ -17,3 +17,9 @@ build/release
 # Build dependencies
 node_modules
 
+# Node heapdump
+heapdump*
+
+# Redis DBs
+dump.rdb*
+

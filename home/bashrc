@@ -16,11 +16,24 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=100000
+HISTFILESIZE=200000
 
-PATH="$PATH:$HOME/src/rkt-v0.6.1"
-PATH="$PATH:$HOME/bin"
+# Directory coloring found here: http://www.macosxhints.com/article.php?story=20031027145026892
+export CLICOLOR=1
+export LSCOLORS=gxfxcxdxbxegedabagacad
+export HISTCONTROL=erasedups
+
+# Get MacVim to load before system vim:
+#export /Applications/MacVim.app/Contents/MacOS:$PATH
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/local/tmux/bin
+export PATH=$PATH:$HOME/local/node/bin
+export PATH=$PATH:$HOME/local/cmake/bin
+export PATH="$PATH:$HOME/src/rkt-v0.6.1"
+export PATH="$PATH:$HOME/bin"
+export PATH=$PATH:$HOME/Projects/Krypton/experimental/build/nodejs/bin
 
 # Add Python PIP bin to beginning of PATH
 if [ -d "$HOME/.local/bin" ]; then
@@ -77,25 +90,14 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# some more ls aliases
+# Some more ls aliases
 alias ll='ls -alF'
-alias la='ls -la'
-alias l='ls -CF'
+alias la="ls -la"
+alias grep="grep --color=auto --line-number --exclude='*.min.js' --exclude='*third_party/*' --exclude='*\.git*' --exclude='*\.bin*' --exclude='*server/static/js*'"
+#alias grep="grep --color=auto --line-number --exclude='*.min.js' --exclude='*third_party/*' --exclude='*\.git*' -exclude='*node_modules*' --exclude='*\.bin*' --exclude='*server/static/js*'"
+alias tmuxr="(tmux ls | grep -vq attached && tmux at) || tmux"
 alias sudo='sudo env PATH=$PATH'
 alias xclip='xclip -selection c'
-alias tmuxr="(tmux ls | grep -vq attached && tmux at) || tmux"
 
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -120,6 +122,9 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
+else
+  bind "set completion-ignore-case on"
+  bind "set show-all-if-ambiguous on"
 fi
 
 # Configure Powerline
@@ -127,3 +132,4 @@ if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.s
     source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 fi
 
+source "./.bashrc.$(uname -s)"
