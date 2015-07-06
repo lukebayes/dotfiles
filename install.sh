@@ -65,7 +65,8 @@ wget https://github.com/lukebayes/powerline/raw/develop/font/PowerlineSymbols.ot
 # Upgrade Python package manager
 pip install -U pip
 # Install Powerline using pip
-pip install --user git+git://github.com/lukebayes/powerline
+pip install --user powerline-status
+mkdir -p $HOME/.config/powerline
 
 if [ ! -e $HOME/src/solarized-dir ]; then
   # Fetch the Solarized directory theme
@@ -81,21 +82,6 @@ if [ $(uname -s) == 'Darwin' ]; then
   # TODO: Install Powerline fonts for OS X
   echo "Installing OS X only features"
   mv $HOME/.bashrc $HOME/.bash_profile
-fi
-
-if [ -uname -s == 'Ubuntu' ]; then
-  echo 'Installing Powerline for Linux'
-  sudo mkdir -p /usr/share/fonts
-  sudo mv PowerlineSymbols.otf /usr/share/fonts/
-  sudo fc-cache -vf
-  sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
-
-  if [ ! -e $HOME/src/solarized ]; then
-    # Fetch the Solarized terminal theme
-    git clone https://github.com/lukebayes/gnome-terminal-colors-solarized.git $HOME/src/solarized || true
-  fi
-  # Install the Solarized terminal theme
-  $HOME/src/solarized/install.sh
 fi
 
 # Configure VIM
