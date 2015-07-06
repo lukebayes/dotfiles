@@ -3,6 +3,7 @@ set nocursorline " don't highlight current line
 " keyboard shortcuts
 inoremap jj <ESC>
 
+
 " highlight search
 set hlsearch
 
@@ -50,15 +51,23 @@ let g:NERDTreeMapMenu='B'
 " autocmd BufWritePre *.js :%s/\s\+$//e
 
 " Configure Powerline
-set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+" set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+set rtp+=$HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
 
-" Always show statusline
-set laststatus=2
+let g:solarized_termcolors=256
 
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 
 syntax enable
-set background=dark
 colorscheme solarized
+set background=dark
 
+" Ignore Powerline characters
+let g:syntastic_python_flake8_args = '--ignore=W191,E501,E128,W291,E126,E101'
+let b:syntastic_checkers = ['flake8']
+unlet! g:python_space_error_highlight
+let g:pymode_syntax_indent_errors = 0
+let g:pymode_syntax_space_errors = 0
+
+" Ignore Jslint node error

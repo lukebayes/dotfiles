@@ -1,6 +1,4 @@
 
-echo 'Configuring Darwin'
-
 # The orginal version is saved in .bash_profile.pysave
 export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 
@@ -8,6 +6,21 @@ alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
 alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --allow-file-access-from-files"
 
-# TODO: Set up git completion
-# source $HOME/bin/git-completion.bash
+# Don't call bind from zsh
+if [ $SHELL = '/bin/bash' ]; then
+  # TODO: Set up git completion
+  # source $HOME/bin/git-completion.bash
+  bind "set completion-ignore-case on"
+  bind "set show-all-if-ambiguous on"
+fi
+
+#POWERLINE_HOME=$HOME/Library/Python/2.7/lib/python/site-packages/powerline
+
+# export TMUX_POWERLINE_CONF=$POWERLINE_HOME/bindings/tmux/powerline.conf
+
+# if [ -e $POWERLINE_HOME/bindings/shell/powerline.sh ]; then
+  # source $POWERLINE_HOME/bindings/shell/powerline.sh
+# else
+  # echo 'Unable to configure Powerline, expected file not found'
+# fi
 

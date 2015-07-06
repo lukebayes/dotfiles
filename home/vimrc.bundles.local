@@ -1,3 +1,4 @@
 
 Plugin 'fatih/go.vim'
+Bundle 'LokalTog/powerline'
 

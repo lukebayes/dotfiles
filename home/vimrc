@@ -18,6 +18,10 @@ endif
 
 call vundle#end()
 
+" Configure Powerline
+let g:Powerline_symbols = "fancy"
+set fillchars+=stl:\ ,stlnc:\
+
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
 

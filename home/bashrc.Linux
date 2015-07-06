@@ -14,3 +14,9 @@ fi
 # Install the Solarized terminal theme
 $HOME/src/solarized/install.sh
 
+# TMUX_POWERLINE_CONF=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
+
+# Configure Powerline
+if [ -e ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
+    source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+fi

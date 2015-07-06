@@ -59,8 +59,9 @@ do
 done
 
 # Download Powerline Fonts
-wget https://github.com/lukebayes/powerline/raw/develop/font/PowerlineSymbols.otf \
-  https://github.com/lukebayes/powerline/raw/develop/font/10-powerline-symbols.conf
+# TODO: Download into a specific location and copy wherever they're needed
+# wget https://github.com/lukebayes/powerline/raw/develop/font/PowerlineSymbols.otf \
+# https://github.com/lukebayes/powerline/raw/develop/font/10-powerline-symbols.conf
 
 # Upgrade Python package manager
 pip install -U pip
@@ -80,8 +81,25 @@ echo "Preparing to install for $(uname -s)"
 
 if [ $(uname -s) == 'Darwin' ]; then
   # TODO: Install Powerline fonts for OS X
-  echo "Installing OS X only features"
+  echo 'Installing Darwin only features'
   mv $HOME/.bashrc $HOME/.bash_profile
+
+  brew install fontforge --with-python
+
+  mkdir -p ~/.local/src
+  git clone https://github.com/Lokaltog/powerline-fontpatcher.git ~/.local/src/powerline-fontpatcher
+  cd ~/.local/src/powerline-fontpatcher && python setup.py install && cd
+  export powerline_symbols=~/.local/src/powerline-fontpatcher/fonts/powerline-symbols.sfd
+
+  wget http://sourceforge.net/projects/sourcecodepro.adobe/files/SourceCodePro_FontsOnly-1.017.zip
+  unzip SourceCodePro_FontsOnly-1.017.zip
+
+  find SourceCodePro_FontsOnly-1.017/TTF -name \*.ttf -exec powerline-fontpatcher --source-font=$powerline_symbols --no-rename {} \;
+  mv *.ttf /Library/Fonts
+fi
+
+if [ $(uname -s) == 'Linux' ]; then
+  echo 'Installing Linux only features'
 fi
 
 # Configure VIM
@@ -103,5 +121,8 @@ fi
 #   git clone https://github.com/lukebayes/vim-colors-solarized.git $HOME/src/solarized-vim || true
 # fi
 
-source $HOME/.bashrc
-
+if [ $(uname -s) == 'Linux' ]; then
+  source "$HOME/.bashrc"
+# else
+# source "$HOME/.bash_profile"
+fi
