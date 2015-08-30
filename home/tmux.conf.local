@@ -10,8 +10,12 @@ bind C-o send-prefix
 # Fix copy
 bind -t vi-copy y copy-pipe "xclip -sel clip -i"
 
-set-option -g default-shell /bin/bash
+set-option -g default-shell /bin/zsh
 set-option -g default-terminal "screen-256color"
+# set -g default-terminal "xterm"
 
-source $HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/tmux/powerline.conf
+# Cannot run system powerline and vim powerline plugin simultaneously
+# Disabled the TMUX powerline until ready to get system powerline integrated
+# with vim.
+# source $HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/tmux/powerline.conf
 

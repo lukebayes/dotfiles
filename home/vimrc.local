@@ -1,4 +1,4 @@
-set nocursorline " don't highlight current line
+" set nocursorline " don't highlight current line
 
 " keyboard shortcuts
 inoremap jj <ESC>
@@ -29,7 +29,9 @@ set hlsearch
 map m :tabn<CR>
 map M :tabp<CR>
 
+let g:vim_json_syntax_conceal = 0
 let g:NERDTreeMapMenu='B'
+
 " let $JS_CMD='node'
 " hi clear SpellBad
 
@@ -37,6 +39,8 @@ let g:NERDTreeMapMenu='B'
 " hi Visual cterm=NONE ctermfg=Black ctermbg=Yellow
 " hi MatchParen cterm=none ctermbg=green ctermfg=black
 " hi CursorLine cterm=none ctermbg=Black
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+set cursorline
 
 " hi SpellBad cterm=bold ctermfg=7 ctermbg=3 guibg=LightYellow
 " au InsertLeave * hi Cursor ctermbg=red
@@ -64,10 +68,21 @@ colorscheme solarized
 set background=dark
 
 " Ignore Powerline characters
-let g:syntastic_python_flake8_args = '--ignore=W191,E501,E128,W291,E126,E101'
-let b:syntastic_checkers = ['flake8']
-unlet! g:python_space_error_highlight
-let g:pymode_syntax_indent_errors = 0
-let g:pymode_syntax_space_errors = 0
+" let g:syntastic_python_flake8_args = '--ignore=W191,E501,E128,W291,E126,E101'
+" let b:syntastic_checkers = ['flake8']
+" unlet! g:python_space_error_highlight
+" let g:pymode_syntax_indent_errors = 0
+" let g:pymode_syntax_space_errors = 0
 
-" Ignore Jslint node error
+" set tabline=tabber#TabLine()
+
+set nowrap
+
+" let g:ctrlp_custom_ignore = 'node_modules|server\/static|DS_Store|git|third_party|iojs|ios|build'
+
+" set wildignore+=*/node_modules/*,*/third_party/*,*/iojs
+
+" let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|third_party/*|node_modules/*|\.settings|\.sass-cache|cache|\.rsync_cache|vendor/([^\/]+\/)*vendor)$'
+
+let g:ctrlp_user_command = 'find %s -type f | grep -v "`cat ~/.gitignore`"'
+

@@ -1,25 +1,28 @@
-# Log support
-logs
-.log
-
-# Profiling data
-pids
+!scripts/build/
+*.heapsnapshot
+*.log
 *.pid
+*.rdb
+*.rdb*
 *.seed
-
-# Generated directories
-lib-cov
-coverage
-
-# Release artifacts
+.DS_Store
+.elasticbeanstalk
+.git
+.idea
+.settings
+/flamecharts/
+build/
 build/release
-
-# Build dependencies
-node_modules
-
-# Node heapdump
+coverage
+coverage
 heapdump*
-
-# Redis DBs
-dump.rdb*
-
+ios/*
+lib-cov
+logs
+node_modules
+node_modules
+pids
+server/static/css
+server/static/fonts
+server/static/js
+third_party

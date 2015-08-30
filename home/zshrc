@@ -8,8 +8,12 @@ export SHELL=/bin/zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 
+# export CLICOLOR=1
+# export LSCOLORS=gxfxcxdxbxegedabagacad
+# export HISTCONTROL=erasedups
+
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# CASE_SENSITIVE="false"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -53,9 +57,11 @@ ZSH_THEME="agnoster"
 plugins=(git)
 
 # User configuration
-
-export PATH="/Users/lukebayes/Library/Python/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/bin:/Users/lukebayes/bin:/Users/lukebayes/local/tmux/bin:/Users/lukebayes/local/node/bin:/Users/lukebayes/local/cmake/bin:/Users/lukebayes/src/rkt-v0.6.1:/Users/lukebayes/bin:/Users/lukebayes/Projects/Krypton/experimental/build/nodejs/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/local/tmux/bin
+export PATH=$PATH:$HOME/local/cmake/bin
+export PATH=$PATH:$HOME/src/rkt-v0.6.1
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,9 +90,18 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias grep="grep --color=auto --line-number --exclude='*.min.js' --exclude='*third_party/*' --exclude='*\.git*' --exclude='*\.bin*' --exclude='*server/static/js*'"
+#alias grep="grep --color=auto --line-number --exclude='*.min.js' --exclude='*third_party/*' --exclude='*\.git*' -exclude='*node_modules*' --exclude='*\.bin*' --exclude='*server/static/js*'"
+alias tmux="TERM=screen-256color-bce tmux"
+alias tmuxr="(tmux ls | grep -vq attached && tmux at) || tmux"
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
+alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --allow-file-access-from-files"
+
 DEFAULT_USER=lukebayes
 
 POWERLINE_CONFIG_PATHS=/Users/lukebayes/.config/powerline
+# POWERLINE_CONFIG_COMMAND=
 
-# source ~/.bash_profile
+source ~/.bash_scripts
 
