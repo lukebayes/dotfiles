@@ -57,11 +57,14 @@ ZSH_THEME="agnoster"
 plugins=(git)
 
 # User configuration
+export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/local/tmux/bin
 export PATH=$PATH:$HOME/local/cmake/bin
 export PATH=$PATH:$HOME/src/rkt-v0.6.1
+
+export TERM=xterm-256color
 
 source $ZSH/oh-my-zsh.sh
 
