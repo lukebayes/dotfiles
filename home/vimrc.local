@@ -25,6 +25,9 @@ set hlsearch
 "command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
 "silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
+syntax enable
+"colorscheme solarized
+set background=dark
 
 map m :tabn<CR>
 map M :tabp<CR>
@@ -39,8 +42,20 @@ let g:NERDTreeMapMenu='B'
 " hi Visual cterm=NONE ctermfg=Black ctermbg=Yellow
 " hi MatchParen cterm=none ctermbg=green ctermfg=black
 " hi CursorLine cterm=none ctermbg=Black
-hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-set cursorline
+hi CursorLine cterm=NONE ctermbg=236 ctermfg=NONE
+hi Search ctermbg=yellow ctermfg=black
+hi VertSplit ctermbg=236 ctermfg=236
+hi Todo term=standout ctermbg=NONE ctermfg=NONE
+hi Constant ctermfg=12
+hi Visual ctermbg=236 ctermfg=NONE
+
+augroup CursorLine
+  au!
+  au VimEnter * setlocal cursorline
+  au WinEnter * setlocal cursorline
+  au BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
 
 " hi SpellBad cterm=bold ctermfg=7 ctermbg=3 guibg=LightYellow
 " au InsertLeave * hi Cursor ctermbg=red
@@ -67,10 +82,6 @@ let g:solarized_termcolors=256
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 
-syntax enable
-colorscheme solarized
-set background=dark
-
 " Ignore Powerline characters
 " let g:syntastic_python_flake8_args = '--ignore=W191,E501,E128,W291,E126,E101'
 " let b:syntastic_checkers = ['flake8']
@@ -88,5 +99,6 @@ set nowrap
 
 " let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|third_party/*|node_modules/*|\.settings|\.sass-cache|cache|\.rsync_cache|vendor/([^\/]+\/)*vendor)$'
 
+" Filter the ctrl p output using the system gitignore
 let g:ctrlp_user_command = 'find %s -type f | grep -v "`cat ~/.gitignore`"'
 
