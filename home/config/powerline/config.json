@@ -1,0 +1,14 @@
+{
+  "segments": {
+    "common": {
+      "env": {
+        "cwd": {
+          "dir_shorten_len": 2,
+          "shorten_home": true,
+          "use_shortened_path": true
+        }
+      }
+    }
+  }
+}
+

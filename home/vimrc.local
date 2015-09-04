@@ -47,7 +47,8 @@ hi Search ctermbg=yellow ctermfg=black
 hi VertSplit ctermbg=236 ctermfg=236
 hi Todo term=standout ctermbg=NONE ctermfg=NONE
 hi Constant ctermfg=12
-hi Visual ctermbg=236 ctermfg=NONE
+hi Visual ctermbg=4 ctermfg=white
+hi SpellBad cterm=underline ctermfg=NONE ctermbg=NONE
 
 augroup CursorLine
   au!
