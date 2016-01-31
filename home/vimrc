@@ -36,8 +36,8 @@ set expandtab                                                " expand tabs to sp
 set ignorecase                                               " case-insensitive search
 set incsearch                                                " search as you type
 set laststatus=2                                             " always show statusline
-set list                                                     " show trailing whitespace
-set listchars=tab:▸\ ,trail:▫
+set nolist                                                     " show trailing whitespace
+"set listchars=tab:▸\ ,trail:▫
 set number                                                   " show line numbers
 set ruler                                                    " show where you are
 set scrolloff=3                                              " show context above/below cursorline
@@ -45,10 +45,11 @@ set shiftwidth=2                                             " normal mode inden
 set showcmd
 set smartcase                                                " case-sensitive search if any caps
 set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
-set tabstop=8                                                " actual tabs occupy 8 characters
+set tabstop=4                                                " actual tabs occupy 8 characters
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
+
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
@@ -88,7 +89,15 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " let g:ctrlp_user_command = 'ag %s -l --nocolor -g --ignore-dir third_party --ignore-dir node_modules --ignore-dir server/static""'
+endif
+
+if executable('sift')
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules,.git,third_party
+  let g:ctrlp_match_window = 'bottom,order:ttb'
+  let g:ctrlp_working_path_mode = 'ra'
+  let g:ctrlp_use_caching = 1
+  let g:ctrlp_user_command = ['sift %s --filename --exclude-dirs node_modules']
 endif
 
 " fdoc is yaml

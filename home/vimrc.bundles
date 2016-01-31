@@ -2,6 +2,7 @@
 " Do NOT add bundles to this list, as they might get removed when you upgrade
 " Maximum Awesome.
 " Please create ~/.vimrc.bundles.local and add any extra bundles you want there
+Plugin 'isRuslan/vim-es6'
 Plugin 'gmarik/vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 " Plugin 'altercation/vim-colors-solarized'

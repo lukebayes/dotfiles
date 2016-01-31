@@ -68,7 +68,7 @@ augroup END
 " let jshint_read = 1
 
 " Delete trailing whitespace on save
-" autocmd BufWritePre *.js :%s/\s\+$//e
+autocmd BufWritePre *.js :%s/\s\+$//e
 
 " Configure Powerline
 " set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
@@ -95,11 +95,8 @@ set t_Co=256
 set nowrap
 
 " let g:ctrlp_custom_ignore = 'node_modules|server\/static|DS_Store|git|third_party|iojs|ios|build'
-
 " set wildignore+=*/node_modules/*,*/third_party/*,*/iojs
-
 " let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|third_party/*|node_modules/*|\.settings|\.sass-cache|cache|\.rsync_cache|vendor/([^\/]+\/)*vendor)$'
-
 " Filter the ctrl p output using the system gitignore
-let g:ctrlp_user_command = 'find %s -type f | grep -v "`cat ~/.gitignore`"'
+" let g:ctrlp_user_command = 'grep -v "`cat $HOME/.gitignore`" -r %s -n'
 
