@@ -1,21 +1,26 @@
-!scripts/build/
 *.heapsnapshot
 *.log
 *.pid
 *.rdb
 *.rdb*
 *.seed
+.AppleDB
+.AppleDesktop
+.AppleDouble
 .DS_Store
+.LSOverride
+.Spotlight-V100
+.Trashes
+._*
+.apdisk
 .elasticbeanstalk
 .git
 .idea
 .settings
-/flamecharts/
+Icon^M^M
+Network Trash Folder
+Temporary Items
 bin
-build/iojs
-build/nodejs
-build/redis
-coverage
 coverage
 dist
 dump.rdb
@@ -25,8 +30,5 @@ ios
 lib-cov
 logs
 node_modules
-pids
-server/static/css
-server/static/fonts
-server/static/js
 third_party
+

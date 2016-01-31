@@ -1,3 +1,4 @@
+# Should store config/tmux and config/powerline, but not other configurations
 home/config/browser-launcher2
 home/config/configstore
 home/config/gcloud
