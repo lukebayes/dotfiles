@@ -1,7 +1,7 @@
 #! /bin/bash
 
 ### VARIABLES
-DOCKER_IMAGE='ubuntu:14.04'
+DOCKER_IMAGE='lukebayes/dev'
 CONTAINER_USERNAME="$(id -u -n)"
 CONTAINER_GROUPNAME="$(id -g -n)"
 HOMEDIR="/home/$CONTAINER_USERNAME"
@@ -37,8 +37,9 @@ echo "$(full_container_cmd $@)"
 eval docker run \
     -it \
     --rm=true \
-    -v $(pwd):$HOMEDIR \
-    -w $HOMEDIR \
+    --privileged=true \
+    -v $(pwd):/krypton \
+    -w /krypton \
     $DOCKER_IMAGE \
     /bin/bash -ci $(full_container_cmd $@)
 

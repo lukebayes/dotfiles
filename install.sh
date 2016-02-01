@@ -125,6 +125,7 @@ fi
 cp -r ./bin "$HOME/bin"
 
 # Probably should use .zshrc instead?
-# if [ $(uname -s) == 'Linux' ]; then
-  # source "$HOME/.bashrc"
-# fi
+if [ $(uname -s) == 'Linux' ]; then
+  source "$HOME/.bashrc"
+fi
+

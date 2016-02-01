@@ -1,12 +1,19 @@
 FROM ubuntu:14.04
 
-ENV BUILD_PACKAGES build-essential \
+ENV TERM xterm
+
+# Full package set, slower builds.
+ENV BUILD_PACKAGES_FULL build-essential \
   cmake \
   git \
   libsqlite3-dev \
+  libssl-dev \
   libxml2-dev \
   libxslt1-dev \
   nodejs \
+  golang \
+  python \
+  python-pip \
   ruby \
   ruby-dev \
   tmux \
@@ -14,9 +21,30 @@ ENV BUILD_PACKAGES build-essential \
   zip \
   zlib1g-dev
 
-# Install Ruby and Rails dependencies
-RUN apt-get update && apt-get install -qfy $BUILD_PACKAGES && \
-  apt-get remove -y $BUILD_PACKAGES && \
+ENV BUILD_PACKAGES_MIN \
+  build-essential \
+  cmake \
+  libssl-dev \
+  libxml2-dev \
+  libxslt-dev \
+  git \
+  python \
+  vim \
+  zip
+
+# Install BUILD_PACKAGES
+RUN apt-get update && apt-get install -fy $BUILD_PACKAGES_MIN && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
+
+RUN echo "Building homedir for lukebayes" && \
+  sudo mkdir -p /home/lukebayes && \
+  sudo mkdir -p /home/lukebayes/src && \
+  sudo mkdir -p /home/lukebayes/bin
+
+RUN export HOME=/home/lukebayes && \
+  cd /home/lukebayes/src && \
+  git clone https://github.com/lukebayes/dotfiles.git && \
+  cd dotfiles && \
+  ./install.sh
 
