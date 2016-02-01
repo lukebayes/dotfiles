@@ -86,7 +86,7 @@ if [ $(uname -s) == 'Darwin' ]; then
 
   brew install fontforge --with-python
 
-  mkdir -p ~/.local/src
+  mkdir -p $HOME/.local/src
   git clone https://github.com/Lokaltog/powerline-fontpatcher.git ~/.local/src/powerline-fontpatcher
   cd ~/.local/src/powerline-fontpatcher && python setup.py install && cd
   export powerline_symbols=~/.local/src/powerline-fontpatcher/fonts/powerline-symbols.sfd
@@ -121,8 +121,10 @@ fi
 #   git clone https://github.com/lukebayes/vim-colors-solarized.git $HOME/src/solarized-vim || true
 # fi
 
-if [ $(uname -s) == 'Linux' ]; then
-  source "$HOME/.bashrc"
-# else
-# source "$HOME/.bash_profile"
-fi
+# Copy the shared binary files
+cp -r ./bin "$HOME/bin"
+
+# Probably should use .zshrc instead?
+# if [ $(uname -s) == 'Linux' ]; then
+  # source "$HOME/.bashrc"
+# fi
