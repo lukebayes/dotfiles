@@ -71,7 +71,7 @@ mkdir -p $HOME/.config/powerline
 
 if [ ! -e $HOME/src/solarized-dir ]; then
   # Fetch the Solarized directory theme
-  git clone https://github.com/lukebayes/dircolors-solarized.git $HOME/src/solarized-dir || true
+  git clone https://github.com/seebi/dircolors-solarized.git $HOME/src/solarized-dir || true
 fi
 
 # Install the Solarized directory theme
