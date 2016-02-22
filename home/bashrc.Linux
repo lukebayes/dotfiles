@@ -7,12 +7,14 @@ sudo mv PowerlineSymbols.otf /usr/share/fonts/
 sudo fc-cache -vf
 sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 
+export LC_COLLATE="C"
+
 if [ ! -e $HOME/src/solarized ]; then
   # Fetch the Solarized terminal theme
-  git clone https://github.com/lukebayes/gnome-terminal-colors-solarized.git $HOME/src/solarized || true
+  # git clone https://github.com/lukebayes/gnome-terminal-colors-solarized.git $HOME/src/solarized || true
 fi
 # Install the Solarized terminal theme
-$HOME/src/solarized/install.sh
+# $HOME/src/solarized/install.sh
 
 # TMUX_POWERLINE_CONF=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
 
@@ -20,3 +22,4 @@ $HOME/src/solarized/install.sh
 if [ -e ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
     source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 fi
+

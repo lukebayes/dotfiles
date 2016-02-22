@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -io pipefail
 
 SOURCEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -64,9 +65,9 @@ done
 # https://github.com/lukebayes/powerline/raw/develop/font/10-powerline-symbols.conf
 
 # Upgrade Python package manager
-pip install -U pip
+sudo pip install -U pip
 # Install Powerline using pip
-pip install --user powerline-status
+sudo pip install --user powerline-status
 mkdir -p $HOME/.config/powerline
 
 if [ ! -e $HOME/src/solarized-dir ]; then
@@ -142,7 +143,7 @@ fi
 # cp -r ./bin "$HOME/bin"
 
 # Probably should use .zshrc instead?
-if [ $(uname -s) == 'Linux' ]; then
-  source "$HOME/.zshrc"
-fi
+# if [ $(uname -s) == 'Linux' ]; then
+  # source "$HOME/.zshrc"
+# fi
 
