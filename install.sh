@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -io pipefail
 
 SOURCEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -64,14 +65,14 @@ done
 # https://github.com/lukebayes/powerline/raw/develop/font/10-powerline-symbols.conf
 
 # Upgrade Python package manager
-pip install -U pip
+sudo pip install -U pip
 # Install Powerline using pip
-pip install --user powerline-status
+sudo pip install --user powerline-status
 mkdir -p $HOME/.config/powerline
 
 if [ ! -e $HOME/src/solarized-dir ]; then
   # Fetch the Solarized directory theme
-  git clone https://github.com/lukebayes/dircolors-solarized.git $HOME/src/solarized-dir || true
+  git clone https://github.com/seebi/dircolors-solarized.git $HOME/src/solarized-dir || true
 fi
 
 # Install the Solarized directory theme
@@ -87,15 +88,32 @@ if [ $(uname -s) == 'Darwin' ]; then
   brew install fontforge --with-python
 
   mkdir -p $HOME/.local/src
-  git clone https://github.com/Lokaltog/powerline-fontpatcher.git ~/.local/src/powerline-fontpatcher
-  cd ~/.local/src/powerline-fontpatcher && python setup.py install && cd
-  export powerline_symbols=~/.local/src/powerline-fontpatcher/fonts/powerline-symbols.sfd
+  git clone https://github.com/Lokaltog/powerline-fontpatcher.git $HOME/.local/src/powerline-fontpatcher
+  pushd $HOME/.local/src/powerline-fontpatcher
+  python setup.py install
+  popd
+  export powerline_symbols=$HOME/.local/src/powerline-fontpatcher/fonts/powerline-symbols.sfd
 
-  wget http://sourceforge.net/projects/sourcecodepro.adobe/files/SourceCodePro_FontsOnly-1.017.zip
-  unzip SourceCodePro_FontsOnly-1.017.zip
+  # Download and unpack Adobe SourceCodePro font
+  pushd $HOME/.local/src
+  wget -O SourceCodePro.zip https://www.google.com/fonts/download?kit=5CnRSlG29fo96WRM6evqx3XmVIqD4Rma_X5NukQ7EX0
+  unzip SourceCodePro.zip -d SourceCodePro
 
-  find SourceCodePro_FontsOnly-1.017/TTF -name \*.ttf -exec powerline-fontpatcher --source-font=$powerline_symbols --no-rename {} \;
+  # Patch the SourceCodePro font with powerline fontpatcher
+  pushd SourceCodePro
+  find . -name "SourceCodePro-*.ttf" -exec powerline-fontpatcher --source-font=$powerline_symbols --no-rename {} \;
   mv *.ttf /Library/Fonts
+  popd
+
+  # Get back to $HOME
+  rm -rf $HOME/.local/src/SourceCodePro
+  popd
+
+  # Adobe fonts are no longer available on Sourceforge
+  # wget http://sourceforge.net/projects/sourcecodepro.adobe/files/SourceCodePro_FontsOnly-1.017.zip
+  # unzip SourceCodePro_FontsOnly-1.017.zip
+  # find SourceCodePro_FontsOnly-1.017/TTF -name \*.ttf -exec powerline-fontpatcher --source-font=$powerline_symbols --no-rename {} \;
+  # mv *.ttf /Library/Fonts
 fi
 
 if [ $(uname -s) == 'Linux' ]; then
@@ -122,10 +140,10 @@ fi
 # fi
 
 # Copy the shared binary files
-cp -r ./bin "$HOME/bin"
+# cp -r ./bin "$HOME/bin"
 
 # Probably should use .zshrc instead?
-if [ $(uname -s) == 'Linux' ]; then
-  source "$HOME/.bashrc"
-fi
+# if [ $(uname -s) == 'Linux' ]; then
+  # source "$HOME/.zshrc"
+# fi
 
