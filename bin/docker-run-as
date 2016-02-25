@@ -38,8 +38,8 @@ eval docker run \
     -it \
     --rm=true \
     --privileged=true \
-    -v $(pwd):/krypton \
-    -w /krypton \
+    -v $(pwd):/project \
+    -w /project \
     $DOCKER_IMAGE \
     /bin/bash -ci $(full_container_cmd $@)
 
