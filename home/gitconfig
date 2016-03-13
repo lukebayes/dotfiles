@@ -32,7 +32,7 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
   grephistory = "!f(){ git log -S \"${1}\" --oneline | cut -d' ' -f1 | xargs git grep \"$1\"; };f"
 [core]
-  excludesfile = "$HOME/.gitignore"
+  excludesfile = "~/.gitignore"
 [push]
   default = current
 [github]
