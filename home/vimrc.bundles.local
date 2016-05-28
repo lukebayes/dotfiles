@@ -1,4 +1,5 @@
 
+Plugin 'lambdatoast/elm.vim'
 Plugin 'fatih/go.vim'
 Plugin 'groenewege/vim-less'
 " Plugin 'fweep/vim-tabber'
