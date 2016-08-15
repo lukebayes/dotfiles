@@ -1,6 +1,7 @@
 
 Plugin 'fatih/go.vim'
 Plugin 'groenewege/vim-less'
+Plugin 'lambdatoast/elm.vim'
 " Plugin 'fweep/vim-tabber'
 " Bundle 'LokalTog/powerline'
 

@@ -65,9 +65,10 @@ export PATH=$PATH:$HOME/local/cmake/bin
 export PATH=$PATH:$HOME/src/rkt-v0.6.1
 export PATH=$PATH:$HOME/src/mongodb-osx-x86_64-3.0.7/bin
 
-export GOROOT=/usr/local/Cellar/go/1.5.3/libexec
+export GOROOT=/usr/local/go
 export GOPATH=$HOME/src/gopath
 export TERM=xterm-256color
+export GO15VENDOREXPERIMENT=1
 
 source $ZSH/oh-my-zsh.sh
 

@@ -27,7 +27,7 @@ set hlsearch
 
 syntax enable
 "colorscheme solarized
-set background=dark
+"set background=dark
 
 map m :tabn<CR>
 map M :tabp<CR>
@@ -42,7 +42,9 @@ let g:NERDTreeMapMenu='B'
 " hi Visual cterm=NONE ctermfg=Black ctermbg=Yellow
 " hi MatchParen cterm=none ctermbg=green ctermfg=black
 " hi CursorLine cterm=none ctermbg=Black
-hi CursorLine cterm=NONE ctermbg=236 ctermfg=NONE
+"
+" hi CursorLine cterm=NONE ctermbg=236 ctermfg=NONE
+hi CursorLine cterm=none ctermbg=lightgrey ctermfg=none
 hi Search ctermbg=yellow ctermfg=black
 hi VertSplit ctermbg=236 ctermfg=236
 hi Todo term=standout ctermbg=NONE ctermfg=NONE
