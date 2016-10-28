@@ -3,6 +3,8 @@ set nocompatible
 
 " enable syntax highlighting
 syntax enable
+set background=light
+colorscheme solarized
 
 " configure Vundle
 filetype on " without this vim emits a zero exit status, later, because of :ft off
@@ -105,6 +107,8 @@ autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
 " md is markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md set spell
+autocmd BufRead,BufNewFile *.md set wrap
+
 " extra rails.vim help
 autocmd User Rails silent! Rnavcommand decorator      app/decorators            -glob=**/* -suffix=_decorator.rb
 autocmd User Rails silent! Rnavcommand observer       app/observers             -glob=**/* -suffix=_observer.rb
@@ -140,3 +144,4 @@ if filereadable(expand("~/.vimrc.local"))
   " noremap! jj <ESC>
   source ~/.vimrc.local
 endif
+

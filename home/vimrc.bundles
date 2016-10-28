@@ -40,4 +40,5 @@ Plugin 'tpope/vim-vividchalk'
 Plugin 'vim-scripts/greplace.vim'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'elzr/vim-json'
-
+Plugin 'valloric/youcompleteme'
+Plugin 'wlangstroth/vim-racket'

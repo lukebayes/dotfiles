@@ -2,5 +2,5 @@
 Plugin 'fatih/go.vim'
 Plugin 'groenewege/vim-less'
 " Plugin 'fweep/vim-tabber'
-" Bundle 'LokalTog/powerline'
+Plugin 'LokalTog/powerline'
 
