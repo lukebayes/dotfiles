@@ -3,7 +3,9 @@
     "common": {
       "env": {
         "cwd": {
-          "dir_shorten_len": 2,
+          "hide_domain": 1,
+          "dir_limit_depth": 1,
+          "dir_shorten_len": 1,
           "shorten_home": true,
           "use_shortened_path": true
         }

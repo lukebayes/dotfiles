@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH=/Users/lukebayes/.oh-my-zsh
 export SHELL=/bin/zsh
 
 # Set name of the theme to load.
@@ -7,9 +7,6 @@ export SHELL=/bin/zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
-
-# Setting DEFAULT_USER allows ZSH agnoster to hide the user portion on the prompt
-export DEFAULT_USER="lukebayes"
 
 # export CLICOLOR=1
 # export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -59,44 +56,23 @@ export DEFAULT_USER="lukebayes"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-# Add the provided directory(ies) to the system path if they are not already
-# present.
-add_to_path () {
-  for d; do
-    d=$(cd -- "$d" && { pwd -P || pwd; }) 2>/dev/null  # canonicalize symbolic links
-    if [ -z "$d" ]; then continue; fi  # skip nonexistent directory
-    case ":$PATH:" in
-      *":$d:"*) :;; 
-      *) export PATH=$PATH:$d;;
-    esac
-  done
-}
-
 # User configuration
-# add_to_path "$PATH"
-# add_to_path "$PATH:$HOME/.local/bin"
-add_to_path "$HOME/bin"
-# add_to_path "$HOME/local/tmux/bin"
-# add_to_path "$HOME/local/cmake/bin"
-# add_to_path "$PATH:$HOME/src/rkt-v0.6.1"
-# add_to_path "$PATH:$HOME/src/mongodb-osx-x86_64-3.0.7/bin"
-add_to_path "$HOME/Projects/lukebayes/dotfiles/home/vim/bundle/powerline/scripts"
+export PATH=/usr/local/bin:$PATH
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/local/tmux/bin
+export PATH=$PATH:$HOME/local/cmake/bin
+export PATH=$PATH:$HOME/src/rkt-v0.6.1
+export PATH=$PATH:$HOME/src/mongodb-osx-x86_64-3.0.7/bin
 
-# export GOROOT=/usr/local/Cellar/go/1.5.3/libexec
-# export GOPATH=$HOME/src/gopath
+export GOROOT=/usr/local/Cellar/go/1.5.3/libexec
+export GOPATH=$HOME/src/gopath
 export TERM=xterm-256color
 
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
-export LC_COLLATE="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
-export LC_MESSAGES="en_US.UTF-8"
-export LC_MONETARY="en_US.UTF-8"
-export LC_NUMERIC="en_US.UTF-8"
-export LC_TIME="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -115,38 +91,32 @@ export LC_ALL="en_US.UTF-8"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias kr="kt.sh"
+alias kt="kt.sh"
 alias grep="grep --color=auto --exclude='*.min.js' --exclude='*third_party/*' --exclude='*\.git*' --exclude='*\.bin*' --exclude='*server/static/js*'"
-# alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="TERM=screen-256color-bce tmux"
 alias tmuxr="(tmux ls | grep -vq attached && tmux at) || tmux"
 # alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 # alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
-# alias mocha="mocha --reporter dot --recursive --check-leaks"
+alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --allow-file-access-from-files"
+alias mocha="mocha --reporter dot --recursive --check-leaks"
 
-# export DEFAULT_USER=lukebayes
+alias kr-prod="kubectl --context prod@us-west-2a"
+alias kr-head="kubectl --context head@us-west-2a"
+alias kr-sandbox="kubectl --context sandbox@us-west-2a"
+alias kr-staging="kubectl --context staging@us-west-2a"
+alias kr-system="kubectl --context kube-system@us-west-2a"
+alias kr-infra="kubectl --context infra@us-west-2a"
 
-# source /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
-# export POWERLINE_THEME_OVERRIDES="\
-  # segment_data.cwd.dir_shorten_len=2;\
-  # segment_data.cwd.dir_limit_depth=1\
-# "
+DEFAULT_USER=lukebayes
 
-# NOTE: Uncommenting the following throws errors in new shells
-# export POWERLINE_CONFIG_PATHS="$POWERLINE_CONFIG_PATHS:${HOME}/.config/powerline"
+POWERLINE_CONFIG_PATHS=/Users/lukebayes/.config/powerline
+# POWERLINE_CONFIG_COMMAND=
 
-# Remap Capslock to Control
-setxkbmap -option ctrl:nocaps
-
-# Configure Node Version Manager
-export NVM_DIR="/home/lukebayes/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# Configure Go Version Manager
-[[ -s "/home/lukebayes/.gvm/scripts/gvm" ]] && source "/home/lukebayes/.gvm/scripts/gvm"
-gvm use go1.7 > /dev/null
-
-# If SSH Connections to Github are being denied, you need to run these two
-# commands:
-# eval "$(ssh-agent -s)"
-# ssh-add ~/.ssh/github_rsa
+source ~/.bash_scripts
 
