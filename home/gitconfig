@@ -5,6 +5,7 @@
   diff = auto
   status = auto
   branch = auto
+	ui = true
 [color "branch"]
   current = yellow reverse
   local = yellow
@@ -33,6 +34,8 @@
   grephistory = "!f(){ git log -S \"${1}\" --oneline | cut -d' ' -f1 | xargs git grep \"$1\"; };f"
 [core]
   excludesfile = "~/.gitignore"
+	autocrlf = false
+	filemode = false
 [push]
   default = current
 [github]
@@ -41,4 +44,5 @@
   required = true
   clean = git media clean %f
   smudge = git media smudge %f
-
+[url "git@github.com:"]
+  insteadOf = https://github.com/

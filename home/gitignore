@@ -1,3 +1,4 @@
+
 *.heapsnapshot
 *.log
 *.pid
@@ -17,6 +18,7 @@
 .git
 .idea
 .settings
+.vscode
 Icon^M^M
 Network Trash Folder
 Temporary Items
@@ -26,9 +28,6 @@ dist
 dump.rdb
 dump.rdb*
 heapdump*
-ios
 lib-cov
 logs
 node_modules
-third_party
-
