@@ -1,6 +1,5 @@
 
-Plugin 'fatih/go.vim'
-Plugin 'groenewege/vim-less'
-" Plugin 'fweep/vim-tabber'
-Plugin 'LokalTog/powerline'
+Plugin 'JulesWang/css.vim'
+Bundle 'groenewege/vim-less'
+"Bundle 'genoma/vim-less' 
 

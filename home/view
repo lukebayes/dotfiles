@@ -1,0 +1,107 @@
+total 6304
+-r--------     1 lukebayes  staff     7B Mar 31  2017 .CFUserTextEncoding
+-rw-r--r--@    1 lukebayes  staff    18K Sep 26 14:14 .DS_Store
+drwx------    85 lukebayes  staff   2.7K Sep 26 14:15 .Trash
+drwxr-xr-x     3 lukebayes  staff    96B Jun 10 15:58 .VSCodeVim
+drwxr-x--x     3 lukebayes  staff    96B Feb 25  2018 .adobe
+drwxr-xr-x    17 lukebayes  staff   544B Jul 29 12:26 .android
+-rw-r--r--     1 lukebayes  staff   2.3M Aug 14 19:10 .babel.json
+-rw-------     1 lukebayes  staff   7.8K Mar 10  2018 .bash_history
+lrwxr-xr-x     1 lukebayes  staff    56B Feb  7  2016 .bash_profile -> /Users/lukebayes/Projects/lukebayes/dotfiles/home/bashrc
+lrwxr-xr-x     1 lukebayes  staff    63B Feb  7  2016 .bashrc.Darwin -> /Users/lukebayes/Projects/lukebayes/dotfiles/home/bashrc.Darwin
+lrwxr-xr-x     1 lukebayes  staff    62B Feb  7  2016 .bashrc.Linux -> /Users/lukebayes/Projects/lukebayes/dotfiles/home/bashrc.Linux
+drwxr-xr-x     2 lukebayes  staff    64B Feb  7  2016 .bin
+drwxr-xr-x     6 lukebayes  staff   192B Sep 23 18:14 .cache
+drwxr-xr-x     4 lukebayes  staff   128B May  8 20:52 .cargo
+drwxr-xr-x     8 lukebayes  staff   256B Jun 10 15:52 .config
+drwx------     3 lukebayes  staff    96B Feb  6  2016 .cups
+lrwxr-xr-x     1 lukebayes  staff    52B Feb  7  2016 .dircolors -> /Users/lukebayes/src/solarized-dir/dircolors.256dark
+drwx------     3 lukebayes  staff    96B Mar 20  2018 .dlv
+-rw-r--r--     1 lukebayes  staff   5.0K Apr  1  2017 .eaglerc
+drwxr-xr-x     4 lukebayes  staff   128B Apr 14  2017 .electron
+-rw-------     1 lukebayes  staff    16B Jun 30 16:14 .emulator_console_auth_token
+drwxr-xr-x     9 lukebayes  staff   288B Aug 14 19:10 .expo
+lrwxr-xr-x     1 lukebayes  staff    59B Apr 14  2017 .gitconfig -> /Users/lukebayes/Projects/lukebayes/dotfiles/home/gitconfig
+-rw-r--r--     1 lukebayes  staff   205B Aug 12  2014 .gitexcludes
+lrwxr-xr-x     1 lukebayes  staff    59B Feb  7  2016 .gitignore -> /Users/lukebayes/Projects/lukebayes/dotfiles/home/gitignore
+drwxr-xr-x     7 lukebayes  staff   224B Mar 10  2018 .gradle
+-rw-r--r--     1 lukebayes  staff    51B Aug 26  2014 .gvimrc
+-rw-r--r--     1 lukebayes  staff    17B Apr 10 09:29 .ideavimrc
+-rw-r--r--     1 lukebayes  staff    35B Aug 12  2014 .inputrc
+-rw-r--r--     1 lukebayes  staff    21K Mar 28  2018 .jhbuildrc
+-rw-r--r--     1 lukebayes  staff   8.2K Mar 28  2018 .jhbuildrc-cfw-10.4
+-rw-r--r--     1 lukebayes  staff   8.2K Mar 28  2018 .jhbuildrc-cfw-10.4u
+-rw-r--r--     1 lukebayes  staff   5.9K Mar 28  2018 .jhbuildrc-custom
+-rw-r--r--     1 lukebayes  staff   8.2K Mar 28  2018 .jhbuildrc-fw-10.4
+-rw-r--r--     1 lukebayes  staff   8.2K Mar 28  2018 .jhbuildrc-fw-10.4-test
+drwxr-xr-x     3 lukebayes  staff    96B Jun 22 18:27 .jssc
+drwxr-xr-x     3 lukebayes  staff    96B Oct 15  2017 .lein
+-rw-------     1 lukebayes  staff   236B Sep 26 13:03 .lesshst
+drwxr-xr-x     5 lukebayes  staff   160B Mar 28  2018 .local
+drwxr-xr-x     3 lukebayes  staff    96B Oct 15  2017 .m2
+lrwxr-xr-x     1 lukebayes  staff    24B May  8 20:51 .multirust -> /Users/lukebayes/.rustup
+drwxr-xr-x     3 lukebayes  staff    96B Aug 12  2014 .node-gyp
+-rw-------     1 lukebayes  staff   112B Sep 25  2017 .node_repl_history
+drwxr-xr-x  3054 lukebayes  staff    95K Jun 13 21:51 .npm
+drwxr-xr-x     4 lukebayes  staff   128B Jun 14 09:17 .npm-global
+-rw-------     1 lukebayes  staff    84B Jun 14 09:16 .npmrc
+drwxr-xr-x    20 lukebayes  staff   640B Feb  7  2016 .nvm
+drwxr-xr-x    16 lukebayes  staff   512B Jun 18 09:02 .oh-my-zsh
+drwxr-xr-x     3 lukebayes  staff    96B Apr 18  2015 .openvr
+drwxr-xr-x     7 lukebayes  staff   224B Jun 30 17:08 .oracle_jre_usage
+-rw-r--r--     1 lukebayes  staff   106B May  8 20:51 .profile
+-rw-------     1 lukebayes  staff   1.0K Aug 12  2014 .rnd
+drwxr-xr-x     7 lukebayes  staff   224B May  8 20:51 .rustup
+drwxr-xr-x    30 lukebayes  staff   960B Aug 12  2014 .rvm
+lrwxr-xr-x     1 lukebayes  staff    59B Apr 14  2017 .sift.conf -> /Users/lukebayes/Projects/lukebayes/dotfiles/home/sift.conf
+-rw-------     1 lukebayes  staff   958B Aug  1 14:51 .sqlite_history
+drwxr-xr-x    11 lukebayes  staff   352B Sep 23 23:28 .ssh
+drwxr-xr-x     6 lukebayes  staff   192B Jun 28  2015 .subversion
+drwxr-xr-x     4 lukebayes  staff   128B Aug 12  2014 .thumbnails
+lrwxr-xr-x     1 lukebayes  staff    46B Aug 12  2014 .tmux.conf -> /Users/lukebayes/src/maximum-awesome/tmux.conf
+-rw-r--r--     1 lukebayes  staff    34B Aug 12  2014 .tmux.conf.local
+lrwxr-xr-x@    1 lukebayes  staff    50B Oct 21  2014 .vim -> /Users/lukebayes/Projects/Foss/maximum-awesome/vim
+drwxr-xr-x    12 lukebayes  staff   384B Mar 15  2015 .vim-junk
+-rw-------     1 lukebayes  staff    43K Sep 26 14:25 .viminfo
+-rw-------@    1 lukebayes  staff     0B Nov 18  2014 .viminfo.tmp
+-rw-------     1 lukebayes  staff     0B Apr 30 11:32 .viminfz.tmp
+lrwxr-xr-x@    1 lukebayes  staff    52B Oct 21  2014 .vimrc -> /Users/lukebayes/Projects/Foss/maximum-awesome/vimrc
+lrwxr-xr-x@    1 lukebayes  staff    60B Oct 21  2014 .vimrc.bundles -> /Users/lukebayes/Projects/Foss/maximum-awesome/vimrc.bundles
+lrwxr-xr-x     1 lukebayes  staff    69B Sep 26 14:23 .vimrc.bundles.local -> /Users/lukebayes/Projects/lukebayes/dotfiles/home/vimrc.bundles.local
+lrwxr-xr-x     1 lukebayes  staff    61B Sep 26 14:22 .vimrc.local -> /Users/lukebayes/Projects/lukebayes/dotfiles/home/vimrc.local
+drwxr-xr-x     3 lukebayes  staff    96B Jun 10 15:45 .vscode
+-rw-r--r--     1 lukebayes  staff   170B Mar 28  2018 .wget-hsts
+-rw-r--r--     1 lukebayes  staff    35K Feb  7  2016 .zcompdump-apricot-5.0.5
+-rw-r--r--     1 lukebayes  staff    38K Apr 11  2017 .zcompdump-apricot-5.2
+-rw-r--r--     1 lukebayes  staff    40K Dec 27  2017 .zcompdump-apricot-5.3
+-rw-r--r--     1 lukebayes  staff    38B May  8 20:51 .zprofile
+-rw-------     1 lukebayes  staff   369K Sep 26 14:25 .zsh_history
+lrwxr-xr-x     1 lukebayes  staff    55B Sep 26 14:21 .zshrc -> /Users/lukebayes/Projects/lukebayes/dotfiles/home/zshrc
+drwx------    11 lukebayes  staff   352B Jul 29 12:23 Applications
+-rw-r--r--     1 lukebayes  staff   476B Mar 12  2018 BREW_FORMULAE.txt
+drwxrwxr-x     3 lukebayes  admin    96B Mar 12  2018 Caskroom
+drwxrwxr-x@    4 lukebayes  staff   128B Sep 24 18:50 Creative Cloud Files
+drwx------+    7 lukebayes  staff   224B Sep 26 13:46 Desktop
+drwx------+    8 lukebayes  staff   256B Sep 26 13:49 Documents
+drwx------+    5 lukebayes  staff   160B Sep 26 14:15 Downloads
+drwxr-xr-x     2 lukebayes  staff    64B Sep 22 22:47 Frameworks
+drwx------+   75 lukebayes  staff   2.3K Aug  7 09:40 Library
+drwx------+    6 lukebayes  staff   192B Feb  9  2018 Movies
+drwx------+    4 lukebayes  staff   128B Sep  6  2014 Music
+drwx------+    5 lukebayes  staff   160B Mar 31 18:03 Pictures
+lrwxr-xr-x     1 lukebayes  staff    23B Jun 18 09:06 Projects -> /Volumes/Media/Projects
+drwxr-xr-x+    5 lukebayes  staff   160B Aug 11  2014 Public
+drwxr-xr-x     3 lukebayes  staff    96B Mar 28  2018 Source
+drwxr-xr-x   310 lukebayes  staff   9.7K Sep 25 16:46 bin
+drwxr-xr-x    10 lukebayes  staff   320B Mar 12  2018 bin.pre-brew
+drwxr-xr-x     8 lukebayes  staff   256B Sep 23 00:51 etc
+drwxr-xr-x     5 lukebayes  staff   160B Apr 20 19:09 go
+drwxr-xr-x   139 lukebayes  staff   4.3K Sep 23 00:51 include
+drwxr-xr-x   268 lukebayes  staff   8.4K Sep 23 00:51 lib
+drwxr-xr-x     3 lukebayes  staff    96B Aug 12  2014 local
+drwxr-xr-x    94 lukebayes  staff   2.9K Sep 25 16:46 opt
+drwxr-xr-x     2 lukebayes  staff    64B Sep 22 22:47 sbin
+drwxr-xr-x     4 lukebayes  staff   128B Aug  7 15:51 sdk
+drwxr-xr-x    38 lukebayes  staff   1.2K Sep 23 00:51 share
+drwxr-xr-x     8 lukebayes  staff   256B Jun  8 09:45 src
+drwxr-xr-x     6 lukebayes  staff   192B Mar 12  2018 var
