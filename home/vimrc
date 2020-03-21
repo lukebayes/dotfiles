@@ -3,8 +3,8 @@ set nocompatible
 
 " enable syntax highlighting
 syntax enable
-set background=light
-colorscheme solarized
+set background=dark
+" colorscheme solarized
 
 " configure Vundle
 filetype on " without this vim emits a zero exit status, later, because of :ft off
@@ -15,7 +15,6 @@ call vundle#begin()
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
-  source ~/.vimrc.bundles.local
 endif
 
 call vundle#end()
