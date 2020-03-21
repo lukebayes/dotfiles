@@ -3,7 +3,8 @@ set nocompatible
 
 " enable syntax highlighting
 syntax enable
-set background=dark
+
+set background=light
 " colorscheme solarized
 
 " configure Vundle
@@ -47,7 +48,9 @@ set scrolloff=3                                              " show context abov
 set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
 set showcmd
 set smartcase                                                " case-sensitive search if any caps
-set wildignore=log/**,Dist/**,Build/**,node_modules/**,target/**,tmp/**,*.rbc,lib/**
+set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
+set tabstop=4                                                " actual tabs occupy 8 characters
+set wildignore=log/**,Dist/**,Build/**,node_modules/**,target/**,tmp/**,*.rbc,lib/**,data/**
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
 set expandtab                                                " expand tabs to spaces
