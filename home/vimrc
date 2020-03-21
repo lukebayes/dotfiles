@@ -6,9 +6,8 @@ set ttimeoutlen=0
 
 " enable syntax highlighting
 syntax enable
-" set background=light
-" colorscheme tango
-set background=dark
+
+set background=light
 " colorscheme solarized
 
 " configure Vundle

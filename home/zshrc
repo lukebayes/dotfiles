@@ -1,13 +1,13 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-# export ZSH=/Users/lukebayes/.oh-my-zsh
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="agnoster"
+SOLARIZED_THEME="light"
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -29,7 +29,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -56,14 +56,18 @@ plugins=(ssh-agent git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+<<<<<<< HEAD
 # export JAVA_CLASSPATH="$HOME/javalib/clojure-1.8.0"
 
 export IDF_PATH="$HOME/esp/esp-idf"
 
 # source $ZSH/oh-my-zsh.sh
 export JAVA_CLASSPATH="$HOME/javalib/clojure-1.8.0"
+=======
+>>>>>>> Updated configurations for laptop
 
 export PATH="$HOME/bin:$PATH"
+<<<<<<< HEAD
 # export PATH="$PATH:/Users/lukebayes/bin"
 # export PATH="$PATH:/Volumes/Deep Storage 01/SDK/platform-tools"
 # export PATH="$PATH:/Applications/Racket v6.12/bin"
@@ -83,7 +87,23 @@ export PATH="$PATH:/usr/sbin"
 # YouTube Cobalt clang and build tools
 export PATH="$HOME/Projects/foss/cobalt/src/third_party/llvm-build/Release+Asserts/bin:$PATH"
 # Nodejs
+<<<<<<< HEAD
 # export PATH="$HOME/Projects/foss/node/node-v12.18.2-linux-x64/bin:$PATH"
+=======
+export PATH="$HOME/Projects/foss/node/node-v12.18.2-linux-x64/bin:$PATH"
+=======
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/depot_tools:$PATH"
+export PATH="$PATH:$HOME/go/bin"
+
+# export PATH="$PATH:/usr/lib/jvm/jdk-14.0.1/bin"
+# export JAVA_HOME="/usr/lib/jvm/jdk-14.0.1"
+
+export IDF_PATH="$HOME/esp/esp-idf"
+
+source $ZSH/oh-my-zsh.sh
+>>>>>>> Updated configurations for linux installation
+>>>>>>> Updated configurations for laptop
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -100,6 +120,7 @@ export PATH="$HOME/Projects/foss/cobalt/src/third_party/llvm-build/Release+Asser
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/id_rsa:~/.ssh/github_rsa"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
