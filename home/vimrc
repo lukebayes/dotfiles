@@ -3,6 +3,7 @@ set nocompatible
 
 " enable syntax highlighting
 syntax enable
+
 set background=dark
 " colorscheme solarized
 
@@ -94,15 +95,19 @@ if executable('ag')
 endif
 
 if executable('sift')
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules,.git,third_party
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules,.git,third_party,lib,data,.nyc_output,Debug,Release,Dist
   let g:ctrlp_match_window = 'bottom,order:ttb'
   let g:ctrlp_working_path_mode = 'ra'
   let g:ctrlp_use_caching = 1
   let g:ctrlp_user_command = ['sift %s --filename --exclude-dirs node_modules']
 endif
 
+" Automatically remove trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
 " fdoc is yaml
 autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
+" Mark lines longer than 80 chars as an error.
+autocmd BufRead,BufNewFile *.h syntax match ErrorMsg /\%>80v.\+/
 " md is markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md set spell

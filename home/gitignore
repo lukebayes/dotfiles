@@ -26,12 +26,12 @@
 .git
 .idea
 .idea
-.project
 .settings
 .svn
 .vscode
 CVS
 Icon^M^M
+NOTES.md
 Network Trash Folder
 Temporary Items
 bin
@@ -42,6 +42,7 @@ doc/*
 dump.rdb
 dump.rdb*
 heapdump*
+lib
 lib-cov
 logs
 node_modules

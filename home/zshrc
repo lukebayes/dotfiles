@@ -55,6 +55,9 @@ plugins=(git)
 # export JAVA_CLASSPATH="$HOME/javalib/clojure-1.8.0"
 
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+export IDF_PATH="$HOME/esp/esp-idf"
 
 source $ZSH/oh-my-zsh.sh
 
