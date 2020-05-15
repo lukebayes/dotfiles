@@ -36,6 +36,7 @@
   excludesfile = "~/.gitignore"
 	autocrlf = false
 	filemode = false
+	editor = /usr/bin/vim
 [push]
   default = current
 [github]

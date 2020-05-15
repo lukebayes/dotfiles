@@ -1,5 +1,11 @@
 
 Plugin 'JulesWang/css.vim'
 Bundle 'groenewege/vim-less'
+
+" Plugin 'mattn/vim-lsp-settings'
+" Plugin 'prabirshrestha/async.vim'
+" Plugin 'prabirshrestha/vim-lsp'
+" Plugin 'prabirshrestha/asyncomplete.vim'
+" Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 "Bundle 'genoma/vim-less' 
 
