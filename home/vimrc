@@ -8,6 +8,8 @@ set ttimeoutlen=0
 syntax enable
 " set background=light
 " colorscheme tango
+set background=dark
+" colorscheme solarized
 
 " configure Vundle
 filetype on " without this vim emits a zero exit status, later, because of :ft off
@@ -51,12 +53,11 @@ set shiftwidth=2                                             " normal mode inden
 set showcmd
 set smartcase                                                " case-sensitive search if any caps
 set wildignore=log/**,Dist/**,Build/**,node_modules/**,target/**,tmp/**,*.rbc,lib/**
+set tabstop=2                                                " actual tabs occupy 8 characters
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
 set expandtab                                                " expand tabs to spaces
 set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
-set tabstop=4                                                " actual tabs occupy 8 characters
-
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a

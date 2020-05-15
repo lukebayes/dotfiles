@@ -37,6 +37,7 @@
 	autocrlf = input
 	filemode = false
 	whitespace = cr-at-eol
+	editor = /usr/bin/vim
 [push]
   default = current
 [github]
