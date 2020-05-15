@@ -13,8 +13,8 @@ esac
 HISTCONTROL=ignoreboth
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=100000
-HISTFILESIZE=200000
+HISTSIZE=-1
+HISTFILESIZE=-1
 
 # Directory coloring found here: http://www.macosxhints.com/article.php?story=20031027145026892
 export CLICOLOR=1
@@ -24,10 +24,6 @@ export HISTCONTROL=erasedups
 # Get MacVim to load before system vim:
 #export /Applications/MacVim.app/Contents/MacOS:$PATH
 export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$HOME/local/tmux/bin
-export PATH=$PATH:$HOME/local/cmake/bin
-export PATH=$PATH:$HOME/src/rkt-v0.6.1
 
 # Add Python PIP bin to beginning of PATH
 if [ -d "$HOME/.local/bin" ]; then
@@ -90,7 +86,7 @@ alias xclip='xclip -selection c'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-export FLEETCTL_ENDPOINT=http://172.17.8.101:4001
-export KUBERNETES_MASTER=http://172.17.8.101:8080
+# export FLEETCTL_ENDPOINT=http://172.17.8.101:4001
+# export KUBERNETES_MASTER=http://172.17.8.101:8080
 
-export PATH="$HOME/.cargo/bin:$PATH"
+# export PATH="$HOME/.cargo/bin:$PATH"
