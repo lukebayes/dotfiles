@@ -14,4 +14,5 @@ Plugin 'elzr/vim-json'
 Plugin 'valloric/youcompleteme'
 " Plugin 'wlangstroth/vim-racket'
 Plugin 'powerline/powerline'
+Plugin 'klen/python-mode'
 

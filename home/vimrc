@@ -101,7 +101,7 @@ if executable('ag')
 endif
 
 if executable('sift')
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.map,*.d,*.o,node_modules,.git,third_party,Dist/*,Build/*,Release/*
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules,.git,third_party,lib,data,.nyc_output,Debug,Release,Dist,*.map,*.d,*.o,Build/*
   let g:ctrlp_match_window = 'bottom,order:ttb'
   let g:ctrlp_working_path_mode = 'ra'
   let g:ctrlp_use_caching = 1
@@ -119,7 +119,7 @@ autocmd BufRead,BufNewFile *.md set wrap
 autocmd BufRead,BufNewFile *.py set tabstop=4
 autocmd BufRead,BufNewFile *.py set softtabstop=4
 autocmd BufRead,BufNewFile *.py set shiftwidth=4
-autocmd BufRead,BufNewFile *.py set textwidth=80
+autocmd BufRead,BufNewFile *.py set textwidth=79
 autocmd BufRead,BufNewFile *.py set expandtab
 autocmd BufRead,BufNewFile *.py set autoindent
 autocmd BufRead,BufNewFile *.py set fileformat=unix
