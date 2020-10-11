@@ -1,4 +1,9 @@
 # Should store config/tmux and config/powerline, but not other configurations
+bin/cura
+bin/stmcube
+bin/st-*
+bin/STM32*
+bin/Ultimaker*
 home/config/Oculus*
 home/config/browser-launcher2
 home/config/configstore
