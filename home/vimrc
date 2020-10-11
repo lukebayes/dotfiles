@@ -36,7 +36,6 @@ set backupcopy=yes                                           " see :help crontab
 set clipboard=unnamed                                        " yank and paste with the system clipboard
 set directory-=.                                             " don't store swapfiles in the current directory
 set encoding=utf-8
-" set expandtab                                                " expand tabs to spaces
 set ignorecase                                               " case-insensitive search
 set incsearch                                                " search as you type
 set laststatus=2                                             " always show statusline
@@ -48,11 +47,12 @@ set scrolloff=3                                              " show context abov
 set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
 set showcmd
 set smartcase                                                " case-sensitive search if any caps
-" set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
-set tabstop=2                                                " actual tabs occupy 8 characters
-set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,lib/**
+set wildignore=log/**,Dist/**,Build/**,node_modules/**,target/**,tmp/**,*.rbc,lib/**
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
+set expandtab                                                " expand tabs to spaces
+set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
+set tabstop=1                                                " actual tabs occupy 8 characters
 
 
 " Enable basic mouse behavior such as resizing buffers.
@@ -97,7 +97,7 @@ if executable('ag')
 endif
 
 if executable('sift')
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules,.git,third_party,lib,data,.nyc_output,Debug,Release,Dist
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules,.git,third_party,lib,data,.nyc_output,Debug,Release,Dist,*.map,*.d,*.o,node_modules,.git,third_party,Dist/*,Build/*
   let g:ctrlp_match_window = 'bottom,order:ttb'
   let g:ctrlp_working_path_mode = 'ra'
   let g:ctrlp_use_caching = 1
@@ -114,6 +114,44 @@ autocmd BufRead,BufNewFile *.h syntax match ErrorMsg /\%>80v.\+/
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md set spell
 autocmd BufRead,BufNewFile *.md set wrap
+
+" Python
+autocmd BufRead,BufNewFile *.py set tabstop=4
+autocmd BufRead,BufNewFile *.py set softtabstop=4
+autocmd BufRead,BufNewFile *.py set shiftwidth=4
+autocmd BufRead,BufNewFile *.py set textwidth=79
+autocmd BufRead,BufNewFile *.py set expandtab
+autocmd BufRead,BufNewFile *.py set autoindent
+autocmd BufRead,BufNewFile *.py set fileformat=unix
+
+let g:pymode_rope = 1
+
+" Documentation
+let g:pymode_doc = 0
+" let g:pymode_doc_key = 'K'
+
+"Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+" Auto check on save
+let g:pymode_lint_write = 1
+
+" Support virtualenv
+" let g:pymode_virtualenv = 1
+
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<leader>b'
+
+" syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" Don't autofold code
+let g:pymode_folding = 0
+let g:pymode_rope_complete_on_dot = 0
 
 " extra rails.vim help
 autocmd User Rails silent! Rnavcommand decorator      app/decorators            -glob=**/* -suffix=_decorator.rb
