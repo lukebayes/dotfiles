@@ -1,11 +1,12 @@
 # Path to your oh-my-zsh installation.
-# export ZSH=/Users/lukebayes/.oh-my-zsh
+export ZSH="/home/lukebayes/.oh-my-zsh"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,32 +50,35 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(ssh-agent git)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export JAVA_CLASSPATH="$HOME/javalib/clojure-1.8.0"
 
-export PATH="/Users/lukebayes/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 # export PATH="$PATH:/Users/lukebayes/bin"
-export PATH="$PATH:$HOME/.npm-global/bin"
-export PATH="$PATH:/usr/local/bin"
+# export PATH="$PATH:/Volumes/Deep Storage 01/SDK/platform-tools"
+# export PATH="$PATH:/Applications/Racket v6.12/bin"
+# export PATH="$PATH:$HOME/.npm-global/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:/usr/bin"
-export PATH="$PATH:/bin"
-export PATH="$PATH:/usr/sbin"
-export PATH="$PATH:/sbin"
-export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/2.7/bin"
-export PATH="$PATH:/opt/X11/bin"
-export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:$HOME/local/cmake/bin"
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:/Applications/Racket v6.12/bin"
-export PATH="$PATH:/Volumes/Deep Storage 01/SDK/platform-tools"
-export PATH="$PATH:/Users/lukebayes/go/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# source $ZSH/oh-my-zsh.sh
+export PATH="$PATH:$HOME/src/eagle-9.6.2"
+export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/2.7/bin"
+export PATH="$PATH:/bin"
+export PATH="$PATH:/opt/X11/bin"
+export PATH="$PATH:/sbin"
+export PATH="$PATH:/usr/bin"
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/usr/sbin"
+# Google build tools
+export PATH="$HOME/depot_tools:$PATH"
+# YouTube Cobalt clang and build tools
+export PATH="$HOME/Projects/foss/cobalt/src/third_party/llvm-build/Release+Asserts/bin:$PATH"
+# Nodejs
+export PATH="$HOME/Projects/foss/node/node-v12.18.2-linux-x64/bin:$PATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -96,9 +100,24 @@ export PATH="$PATH:/Users/lukebayes/go/bin"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
 
 # Turn OFF the muthereffing System Bell
 xset b off
 xset b 0 0 0
+
+# Add the github rsa key if it's not already added
+# ssh-add -l | grep github > /dev/null 2>&1
+# github_rsa_added=$?
+# Add the expected ssh identities to the running ssh-agent
+# if [ $github_rsa_added != 0 ]; then
+  # ssh-add $HOME/.ssh/github_rsa
+# fi
+
+# Add the beefcake rsa key if it's not already added
+# ssh-add -l | grep beefcake > /dev/null 2>&1
+# beefcake_rsa_added=$?
+# Add the expected ssh identities to the running ssh-agent
+# if [ $beefcake_rsa_added != 0 ]; then
+  # ssh-add $HOME/.ssh/beefcake_rsa
+# fi
 

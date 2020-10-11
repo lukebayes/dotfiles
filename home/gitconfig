@@ -34,7 +34,7 @@
   grephistory = "!f(){ git log -S \"${1}\" --oneline | cut -d' ' -f1 | xargs git grep \"$1\"; };f"
 [core]
   excludesfile = "~/.gitignore"
-	autocrlf = false
+	autocrlf = input
 	filemode = false
 	editor = /usr/bin/vim
 [push]
