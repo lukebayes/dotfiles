@@ -47,4 +47,5 @@ lib-cov
 logs
 node_modules
 ruby_sess.*
+tags
 test/coverage
