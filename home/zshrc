@@ -8,6 +8,12 @@ export ZSH="/home/lukebayes/.oh-my-zsh"
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="agnoster"
 
+# Ensure history is preserved
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
