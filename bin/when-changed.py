@@ -7,6 +7,11 @@ Usage: when-changed FILE COMMAND...
 
 Copyright (c) 2011, Johannes H. Jensen.
 License: BSD, see LICENSE for more details.
+
+Updated by Luke Bayes with:
+* Extra whitespace between builds
+* Message to indicate which file triggered the build
+* De-duplicate files list to avoid multi-builds when a single file changes
 """
 import sys
 import os
@@ -32,20 +37,22 @@ if __name__ == '__main__':
         print_help(prog)
         exit(0)
 
-    files = []
+    all_files = []
     command = []
 
     if '-c' in args:
         cpos = args.index('-c')
-        files = args[:cpos]
+        all_files = args[:cpos]
         command = args[cpos+1:]
     else:
-        files = [args[0]]
+        all_files = [args[0]]
         command = args[1:]
 
-    if not files or not command:
+    if not all_files or not command:
         print_usage(prog)
         exit(1)
+
+    files = set(all_files)
 
     command = ' '.join(command)
 
@@ -71,7 +78,10 @@ if __name__ == '__main__':
                 t = os.stat(f).st_mtime
                 if t != mtimes[i]:
                     mtimes[i] = t
+                    print(">> running '%s' because of change in: '%s'" %
+                            (command, f))
                     os.system(command)
+                    print("\n\n\n")
 
             except OSError as e:
                 print(e.strerror)
