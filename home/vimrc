@@ -4,6 +4,11 @@ set nocompatible
 " enable syntax highlighting
 syntax enable
 
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+let g:ycm_clangd_binary_path = exepath("clangd")
+
 set background=light
 " colorscheme solarized
 
@@ -45,17 +50,17 @@ set nolist                                                     " show trailing w
 set number                                                   " show line numbers
 set ruler                                                    " show where you are
 set scrolloff=3                                              " show context above/below cursorline
-set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
 set showcmd
 set smartcase                                                " case-sensitive search if any caps
+set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
 set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
 set tabstop=4                                                " actual tabs occupy 8 characters
-set wildignore=log/**,Dist/**,Build/**,node_modules/**,target/**,tmp/**,*.rbc,lib/**,data/**
+" set expandtab                                                " expand tabs to spaces
+" set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
+" set tabstop=1                                                " actual tabs occupy 8 characters
+set wildignore=log/**,CMakeFiles/**,Dist/**,Build/**,node_modules/**,target/**,tmp/**,*.rbc,lib/**
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
-set expandtab                                                " expand tabs to spaces
-set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
-set tabstop=1                                                " actual tabs occupy 8 characters
 
 
 " Enable basic mouse behavior such as resizing buffers.
@@ -88,6 +93,8 @@ cnoremap w!! %!sudo tee > /dev/null %
 " plugin settings
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
+let g:NERDTreeIgnore = ['^cmake_install.cmake$', '^bin$[[dir]]', '^CMakeFiles$[[dir]]']
+
 let g:gitgutter_enabled = 0
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
@@ -100,7 +107,7 @@ if executable('ag')
 endif
 
 if executable('sift')
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules,.git,third_party,lib,data,.nyc_output,Debug,Release,Dist,*.map,*.d,*.o,node_modules,.git,third_party,Dist/*,Build/*
+  set wildignore+=CMakeFiles/*,*/tmp/*,*.so,*.swp,*.zip,node_modules,.git,third_party,lib,.nyc_output,Debug,Release,Dist,*.map,*.d,*.o,node_modules,.git,third_party,Dist/*,Build/*
   let g:ctrlp_match_window = 'bottom,order:ttb'
   let g:ctrlp_working_path_mode = 'ra'
   let g:ctrlp_use_caching = 1
@@ -111,8 +118,18 @@ endif
 autocmd BufWritePre * %s/\s\+$//e
 " fdoc is yaml
 autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
+
 " Mark lines longer than 80 chars as an error.
-autocmd BufRead,BufNewFile *.h syntax match ErrorMsg /\%>80v.\+/
+" autocmd BufRead,BufNewFile *.h syntax match ErrorMsg /\%>80v.\+/
+" autocmd BufRead,BufNewFile *.c syntax match ErrorMsg /\%>80v.\+/
+autocmd BufRead,BufNewFile *.c set tabstop=2
+autocmd BufRead,BufNewFile *.c set softtabstop=2
+autocmd BufRead,BufNewFile *.c set shiftwidth=2
+autocmd BufRead,BufNewFile *.c set textwidth=79
+autocmd BufRead,BufNewFile *.c set autoindent
+autocmd BufRead,BufNewFile *.c set fileformat=unix
+autocmd BufRead,BufNewFile *.c set expandtab
+
 " md is markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md set spell
@@ -191,4 +208,7 @@ if filereadable(expand("~/.vimrc.local"))
   " noremap! jj <ESC>
   source ~/.vimrc.local
 endif
+
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 

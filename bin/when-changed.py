@@ -72,10 +72,10 @@ if __name__ == '__main__':
                 if t != mtimes[i]:
                     mtimes[i] = t
                     os.system(command)
-
+                    print("\n\n\n") # Put some lines between runs
             except OSError as e:
                 print(e.strerror)
                 # TODO: Exit here?
 
-        time.sleep(0.5)
+        time.sleep(0.8)
 
