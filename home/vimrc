@@ -1,16 +1,18 @@
 " don't bother with vi compatibility
 set nocompatible
 
+set timeoutlen=1000
+set ttimeoutlen=0
+
 " enable syntax highlighting
 syntax enable
-
-set background=dark
-" colorscheme solarized
+" set background=light
+" colorscheme tango
 
 " configure Vundle
 filetype on " without this vim emits a zero exit status, later, because of :ft off
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle.vim/
 call vundle#begin()
 
 " install Vundle bundles
@@ -24,6 +26,9 @@ call vundle#end()
 let g:Powerline_symbols = "fancy"
 set fillchars+=stl:\ ,stlnc:\
 
+" Turn off matching paren hysterical hysteresis
+let g:loaded_matchparen=1
+
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
 
@@ -34,7 +39,6 @@ set backupcopy=yes                                           " see :help crontab
 set clipboard=unnamed                                        " yank and paste with the system clipboard
 set directory-=.                                             " don't store swapfiles in the current directory
 set encoding=utf-8
-set expandtab                                                " expand tabs to spaces
 set ignorecase                                               " case-insensitive search
 set incsearch                                                " search as you type
 set laststatus=2                                             " always show statusline
@@ -46,11 +50,12 @@ set scrolloff=3                                              " show context abov
 set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
 set showcmd
 set smartcase                                                " case-sensitive search if any caps
-set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
-set tabstop=4                                                " actual tabs occupy 8 characters
-set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,lib/**
+set wildignore=log/**,Dist/**,Build/**,node_modules/**,target/**,tmp/**,*.rbc,lib/**
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
+set expandtab                                                " expand tabs to spaces
+set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
+set tabstop=4                                                " actual tabs occupy 8 characters
 
 
 " Enable basic mouse behavior such as resizing buffers.
@@ -95,31 +100,65 @@ if executable('ag')
 endif
 
 if executable('sift')
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules,.git,third_party,lib,data,.nyc_output,Debug,Release,Dist
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.map,*.d,*.o,node_modules,.git,third_party,Dist/*,Build/*,Release/*
   let g:ctrlp_match_window = 'bottom,order:ttb'
   let g:ctrlp_working_path_mode = 'ra'
   let g:ctrlp_use_caching = 1
   let g:ctrlp_user_command = ['sift %s --filename --exclude-dirs node_modules']
 endif
 
-" Automatically remove trailing whitespace
-autocmd BufWritePre * %s/\s\+$//e
 " fdoc is yaml
 autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
-" Mark lines longer than 80 chars as an error.
-autocmd BufRead,BufNewFile *.h syntax match ErrorMsg /\%>80v.\+/
 " md is markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md set spell
 autocmd BufRead,BufNewFile *.md set wrap
 
+" Python
+autocmd BufRead,BufNewFile *.py set tabstop=4
+autocmd BufRead,BufNewFile *.py set softtabstop=4
+autocmd BufRead,BufNewFile *.py set shiftwidth=4
+autocmd BufRead,BufNewFile *.py set textwidth=80
+autocmd BufRead,BufNewFile *.py set expandtab
+autocmd BufRead,BufNewFile *.py set autoindent
+autocmd BufRead,BufNewFile *.py set fileformat=unix
+
+let g:pymode_rope = 1
+
+" Documentation
+let g:pymode_doc = 0
+" let g:pymode_doc_key = 'K'
+
+"Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+" Auto check on save
+let g:pymode_lint_write = 1
+
+" Support virtualenv
+" let g:pymode_virtualenv = 1
+
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<leader>b'
+
+" syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" Don't autofold code
+let g:pymode_folding = 0
+let g:pymode_rope_complete_on_dot = 0
+
 " extra rails.vim help
-autocmd User Rails silent! Rnavcommand decorator      app/decorators            -glob=**/* -suffix=_decorator.rb
-autocmd User Rails silent! Rnavcommand observer       app/observers             -glob=**/* -suffix=_observer.rb
-autocmd User Rails silent! Rnavcommand feature        features                  -glob=**/* -suffix=.feature
-autocmd User Rails silent! Rnavcommand job            app/jobs                  -glob=**/* -suffix=_job.rb
-autocmd User Rails silent! Rnavcommand mediator       app/mediators             -glob=**/* -suffix=_mediator.rb
-autocmd User Rails silent! Rnavcommand stepdefinition features/step_definitions -glob=**/* -suffix=_steps.rb
+" autocmd User Rails silent! Rnavcommand decorator      app/decorators            -glob=**/* -suffix=_decorator.rb
+" autocmd User Rails silent! Rnavcommand observer       app/observers             -glob=**/* -suffix=_observer.rb
+" autocmd User Rails silent! Rnavcommand feature        features                  -glob=**/* -suffix=.feature
+" autocmd User Rails silent! Rnavcommand job            app/jobs                  -glob=**/* -suffix=_job.rb
+" autocmd User Rails silent! Rnavcommand mediator       app/mediators             -glob=**/* -suffix=_mediator.rb
+" autocmd User Rails silent! Rnavcommand stepdefinition features/step_definitions -glob=**/* -suffix=_steps.rb
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
@@ -149,3 +188,24 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" Configure clangd with YouCompleteMe
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+let g:ycm_clangd_binary_path = exepath("clangd")
+
+" YCM configuration
+let g:ycm_max_num_candidates = 5
+let g:ycm_max_num_identifier_candidates = 10
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
