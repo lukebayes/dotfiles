@@ -65,10 +65,10 @@ done
 # https://github.com/lukebayes/powerline/raw/develop/font/10-powerline-symbols.conf
 
 # Upgrade Python package manager
-sudo pip install -U pip
+# sudo pip install -U pip
 # Install Powerline using pip
-sudo pip install --user powerline-status
-mkdir -p $HOME/.config/powerline
+# sudo pip install --user powerline-status
+# mkdir -p $HOME/.config/powerline
 
 if [ ! -e $HOME/src/solarized-dir ]; then
   # Fetch the Solarized directory theme

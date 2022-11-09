@@ -5,8 +5,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="lbayes"
-SOLARIZED_THEME="light"
+ZSH_THEME="agnoster"
+# SOLARIZED_THEME="light"
 
 # Prevent VIM from locking up after hitting CRL-S
 stty -ixon
@@ -60,38 +60,18 @@ source $ZSH/oh-my-zsh.sh
 # Add Github certificate to ssh-agent.
 ssh-add $HOME/.ssh/github_rsa
 
-# For Cobalt builds
-export NVM_DIR=$HOME/.nvm
-export NODE_VERSION=12.17.0
-
 # User configuration
 # export JAVA_CLASSPATH="$HOME/javalib/clojure-1.8.0"
 
 export IDF_PATH="$HOME/esp/esp-idf"
 
-# export PATH="$PATH:/Users/lukebayes/bin"
-# export PATH="$PATH:/Volumes/Deep Storage 01/SDK/platform-tools"
-# export PATH="$PATH:/Applications/Racket v6.12/bin"
-# export PATH="$PATH:$HOME/.npm-global/bin"
+export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/local/cmake/bin"
-export PATH="$PATH:$HOME/src/eagle-9.6.2"
-export PATH="$PATH:$HOME/src/clion-2021.1/bin"
-export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/2.7/bin"
 export PATH="$PATH:/bin"
-export PATH="$PATH:/opt/X11/bin"
 export PATH="$PATH:/sbin"
 export PATH="$PATH:/usr/bin"
 export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/usr/sbin"
-export PATH="$HOME/depot_tools:$PATH"
-export PATH="$PATH:$HOME/src/zig"
-# Google build tools
-# YouTube Cobalt clang and build tools
-# export PATH="$HOME/Projects/foss/cobalt/src/third_party/llvm-build/Release+Asserts/bin:$PATH"
-# Nodejs
-# export PATH="$HOME/Projects/foss/node/node-v12.18.2-linux-x64/bin:$PATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -116,8 +96,7 @@ export SSH_KEY_PATH="~/.ssh/id_rsa:~/.ssh/github_rsa"
 # For a full list of active aliases, run `alias`.
 
 # Ensure make runs with all available, *physical* cores
-alias make="make -j$(grep ^cpu\\scores /proc/cpuinfo | uniq |  awk '{print $4}')"
-alias zb="zig build"
+alias make="make -j$(grep ^cpu\\scores /proc/cpuinfo | uniq | awk '{print $4}')"
 
 # Turn OFF the muthereffing System Bell
 xset b off

@@ -1,5 +1,5 @@
 " Plugins here are part of the CORE Maximum Awesome setup
-Plugin 'gmarik/vundle.vim'
+" Plugin 'gmarik/vundle.vim'
 " Plugin 'airblade/vim-gitgutter'
 " Plugin 'austintaylor/vim-indentobject'
 " Plugin 'christoomey/vim-tmux-navigator'
