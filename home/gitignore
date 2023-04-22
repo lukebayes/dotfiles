@@ -26,12 +26,12 @@
 .git
 .idea
 .idea
+.obsidian
 .settings
 .svn
 .vscode
 CVS
 Icon^M^M
-NOTES.md
 Network Trash Folder
 Temporary Items
 bin

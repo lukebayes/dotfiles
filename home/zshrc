@@ -55,10 +55,9 @@ stty -ixon
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(ssh-agent git)
 
-source $ZSH/oh-my-zsh.sh
+ssh-add $HOME/.ssh/github
 
-# Add Github certificate to ssh-agent.
-ssh-add $HOME/.ssh/github_rsa
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 # export JAVA_CLASSPATH="$HOME/javalib/clojure-1.8.0"
@@ -72,9 +71,12 @@ export PATH="$PATH:/sbin"
 export PATH="$PATH:/usr/bin"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/usr/sbin"
+export PATH="$PATH:/opt/gcc-arm-none-eabi/bin"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG="en_US.utf8"
+export LANGUAGE="en_US.utf8"
+export LC_ALL="en_US.utf8"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -97,6 +99,7 @@ export SSH_KEY_PATH="~/.ssh/id_rsa:~/.ssh/github_rsa"
 
 # Ensure make runs with all available, *physical* cores
 alias make="make -j$(grep ^cpu\\scores /proc/cpuinfo | uniq | awk '{print $4}')"
+alias python=python3
 
 # Turn OFF the muthereffing System Bell
 xset b off
@@ -107,7 +110,7 @@ xset b 0 0 0
 # github_rsa_added=$?
 # Add the expected ssh identities to the running ssh-agent
 # if [ $github_rsa_added != 0 ]; then
-  # ssh-add $HOME/.ssh/github_rsa
+  # ssh-add $HOME/.ssh/github
 # fi
 
 # Add the beefcake rsa key if it's not already added

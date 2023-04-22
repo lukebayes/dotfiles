@@ -12,6 +12,7 @@ let g:ycm_clangd_uses_ycmd_caching = 0
 " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
 let g:ycm_clangd_binary_path = exepath("clangd")
 
+set nowrap
 set background=light
 " colorscheme solarized
 
@@ -57,7 +58,7 @@ set showcmd
 set smartcase                                                " case-sensitive search if any caps
 set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
 set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
-set tabstop=4                                                " actual tabs occupy 8 characters
+set tabstop=2                                                " actual tabs occupy 8 characters
 " set expandtab                                                " expand tabs to spaces
 " set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
 " set tabstop=1                                                " actual tabs occupy 8 characters
@@ -133,7 +134,7 @@ autocmd BufRead,BufNewFile *.c set expandtab
 " md is markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md set spell
-autocmd BufRead,BufNewFile *.md set wrap
+autocmd BufRead,BufNewFile *.md set nowrap
 
 " Python
 autocmd BufRead,BufNewFile *.py set tabstop=4
