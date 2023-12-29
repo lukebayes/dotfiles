@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 when-changed - run a command when a file is changed
 
@@ -66,12 +66,16 @@ if __name__ == '__main__':
 
     # Start polling for changes
     while True:
+        run_once = False
         for i, f in enumerate(files):
             try:
                 t = os.stat(f).st_mtime
                 if t != mtimes[i]:
                     mtimes[i] = t
-                    os.system(command)
+                    if (run_once is False):
+                        print("File %s changed" % f)
+                        run_once = True
+                        os.system(command)
                     print("\n\n\n") # Put some lines between runs
             except OSError as e:
                 print(e.strerror)
