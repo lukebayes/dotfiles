@@ -59,7 +59,7 @@ set smartcase                                                " case-sensitive se
 set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
 set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
 set tabstop=2                                                " actual tabs occupy 8 characters
-" set expandtab                                                " expand tabs to spaces
+set expandtab                                                " expand tabs to spaces
 " set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
 " set tabstop=1                                                " actual tabs occupy 8 characters
 set wildignore=log/**,CMakeFiles/**,Dist/**,Build/**,node_modules/**,target/**,tmp/**,*.rbc,lib/**
