@@ -3,17 +3,12 @@ set nocompatible
 
 set timeoutlen=1000
 set ttimeoutlen=0
+set nowrap
 
 " enable syntax highlighting
 syntax enable
-
-" Let clangd fully control code completion
-let g:ycm_clangd_uses_ycmd_caching = 0
-" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
-let g:ycm_clangd_binary_path = exepath("clangd")
-
-set background=light
-" colorscheme solarized
+" set background=light
+" colorscheme tango
 
 " configure Vundle
 filetype on " without this vim emits a zero exit status, later, because of :ft off
@@ -42,7 +37,7 @@ set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
 set backupcopy=yes                                           " see :help crontab
-set clipboard=unnamed                                        " yank and paste with the system clipboard
+set clipboard=unnamedplus                                    " yank and paste with the system clipboard
 set directory-=.                                             " don't store swapfiles in the current directory
 set encoding=utf-8
 set ignorecase                                               " case-insensitive search
@@ -53,17 +48,16 @@ set nolist                                                     " show trailing w
 set number                                                   " show line numbers
 set ruler                                                    " show where you are
 set scrolloff=3                                              " show context above/below cursorline
+set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
 set showcmd
 set smartcase                                                " case-sensitive search if any caps
-set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
-set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
-set tabstop=4                                                " actual tabs occupy 8 characters
-" set expandtab                                                " expand tabs to spaces
-" set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
-" set tabstop=1                                                " actual tabs occupy 8 characters
-set wildignore=log/**,CMakeFiles/**,Dist/**,Build/**,node_modules/**,target/**,tmp/**,*.rbc,lib/**
+set wildignore=log/**,Dist/**,Build/**,node_modules/**,target/**,tmp/**,*.rbc,obj,dist
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
+set expandtab                                                " expand tabs to spaces
+set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
+set tabstop=4                                                " actual tabs occupy 8 characters
+
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
@@ -95,8 +89,6 @@ cnoremap w!! %!sudo tee > /dev/null %
 " plugin settings
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
-let g:NERDTreeIgnore = ['^cmake_install.cmake$', '^bin$[[dir]]', '^CMakeFiles$[[dir]]']
-
 let g:gitgutter_enabled = 0
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
@@ -109,37 +101,28 @@ if executable('ag')
 endif
 
 if executable('sift')
-  set wildignore+=CMakeFiles/*,*/tmp/*,*.so,*.swp,*.zip,node_modules,.git,third_party,lib,.nyc_output,Debug,Release,Dist,*.map,*.d,*.o,node_modules,.git,third_party,Dist/*,Build/*
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.map,*.d,*.o,node_modules,.git,third_party,Dist/*,Build/*,Release/*,obj,dist
   let g:ctrlp_match_window = 'bottom,order:ttb'
   let g:ctrlp_working_path_mode = 'ra'
   let g:ctrlp_use_caching = 1
   let g:ctrlp_user_command = ['sift %s --filename --exclude-dirs node_modules']
 endif
 
+
+let NERDTreeRespectWildIgnore=1
+
 " fdoc is yaml
 autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
-
-" Mark lines longer than 80 chars as an error.
-" autocmd BufRead,BufNewFile *.h syntax match ErrorMsg /\%>80v.\+/
-" autocmd BufRead,BufNewFile *.c syntax match ErrorMsg /\%>80v.\+/
-autocmd BufRead,BufNewFile *.c set tabstop=2
-autocmd BufRead,BufNewFile *.c set softtabstop=2
-autocmd BufRead,BufNewFile *.c set shiftwidth=2
-autocmd BufRead,BufNewFile *.c set textwidth=79
-autocmd BufRead,BufNewFile *.c set autoindent
-autocmd BufRead,BufNewFile *.c set fileformat=unix
-autocmd BufRead,BufNewFile *.c set expandtab
-
 " md is markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md set spell
 autocmd BufRead,BufNewFile *.md set wrap
 
 " Python
-autocmd BufRead,BufNewFile *.py set tabstop=4
-autocmd BufRead,BufNewFile *.py set softtabstop=4
-autocmd BufRead,BufNewFile *.py set shiftwidth=4
-autocmd BufRead,BufNewFile *.py set textwidth=79
+autocmd BufRead,BufNewFile *.py set tabstop=2
+autocmd BufRead,BufNewFile *.py set softtabstop=2
+autocmd BufRead,BufNewFile *.py set shiftwidth=2
+autocmd BufRead,BufNewFile *.py set textwidth=120
 autocmd BufRead,BufNewFile *.py set expandtab
 autocmd BufRead,BufNewFile *.py set autoindent
 autocmd BufRead,BufNewFile *.py set fileformat=unix
@@ -168,6 +151,9 @@ let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" let g:syntastic_c_include_dirs = ['Core/Inc', 'Drivers/XPD_USB', 'Drivers/STM32L4xx_HAL_Driver/Inc', 'Drivers/CMSIS/Include', 'Vendor/USBDevice/Include', 'Vendor/USBDevice/PDs/STM32_XPD', 'Vendor/HidReportDef/include/hid']
+" set path=.,/usr/include,Core/Inc,Drivers/XPD_USB,Drivers/STM32L4xx_HAL_Driver/Inc,Drivers/CMSIS/Include,Vendor/USBDevice/Include,Vendor/USBDevice/PDs/STM32_XPD,Vendor/HidReportDef/include/hid
 
 " Don't autofold code
 let g:pymode_folding = 0
@@ -209,7 +195,6 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-<<<<<<< HEAD
 " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
 " - https://github.com/Valloric/YouCompleteMe
 " - https://github.com/nvim-lua/completion-nvim
@@ -229,7 +214,6 @@ let g:ycm_clangd_binary_path = exepath("clangd")
 " YCM configuration
 let g:ycm_max_num_candidates = 5
 let g:ycm_max_num_identifier_candidates = 10
-
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 

@@ -1,18 +1,33 @@
 " Plugins here are part of the CORE Maximum Awesome setup
+" Do NOT add bundles to this list, as they might get removed when you upgrade
+" Maximum Awesome.
+" Please create ~/.vimrc.bundles.local and add any extra bundles you want there
 Plugin 'gmarik/vundle.vim'
-" Plugin 'airblade/vim-gitgutter'
-" Plugin 'austintaylor/vim-indentobject'
-" Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'majutsushi/tagbar'
-" Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-bundler'
-" Plugin 'vim-scripts/greplace.vim'
-" Plugin 'elzr/vim-json'
-Plugin 'valloric/youcompleteme'
-" Plugin 'wlangstroth/vim-racket'
-" Plugin 'powerline/powerline'
-" Plugin 'klen/python-mode'
 Plugin 'ziglang/zig.vim'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'valloric/youcompleteme'
+" Plugin 'ziglang/zig.vim'
+
+" Install UltiSnips along with content
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
+
+" C Language Server Plugin (LSP), these did not work properly for me.
+" Plugin 'prabirshrestha/vim-lsp'
+" Plugin 'mattn/vim-lsp-settings'
+
+" Plugin 'isRuslan/vim-es6'
+" Plugin 'klen/python-mode'
+" Plugin 'JulesWang/css.vim'
+" Plugin 'airblade/vim-gitgutter'
+" Plugin 'rking/ag.vim'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'elzr/vim-json'
+" Plugin 'wlangstroth/vim-racket'
+Plugin 'powerline/powerline'
+
