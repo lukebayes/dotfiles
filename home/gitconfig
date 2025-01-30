@@ -29,6 +29,7 @@
   ci = commit
   br = branch
   brr = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short)     %(authorname) %(refname:short)'
+  barr = for-each-ref --sort=-committerdate refs/heads/ refs/remotes/ --format='%(committerdate:short)     %(authorname) %(refname:short)'
   sta = stash
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
   grephistory = "!f(){ git log -S \"${1}\" --oneline | cut -d' ' -f1 | xargs git grep \"$1\"; };f"
@@ -50,3 +51,5 @@
   insteadOf = https://github.com/
 [pull]
 	rebase = true
+[http]
+	sslVerify = true

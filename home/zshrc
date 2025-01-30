@@ -63,9 +63,8 @@ setopt appendhistory
 plugins=(ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
-
 # Add Github key to ssh-agent
-ssh-add $HOME/.ssh/github_rsa
+ssh-add $HOME/.ssh/github_ed25519
 
 # User configuration
 # export JAVA_CLASSPATH="$HOME/javalib/clojure-1.8.0"
@@ -80,6 +79,9 @@ export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/usr/sbin"
 export PATH="$PATH:/usr/local/cuda-11.4/bin"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/wabt/bin:$PATH"
+export PATH="/opt/drake/bin${PATH:+:${PATH}}"
+export PYTHONPATH="/opt/drake/lib/python$(python3 -c 'import sys; print("{0}.{1}".format(*sys.version_info))')/site-packages${PYTHONPATH:+:${PYTHONPATH}}"
 
 # Add cuda to the LD Library Path
 export LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
@@ -103,8 +105,6 @@ export LD_LIBRARY_PATH=:$LD_LIBRARY_PATH:"/usr/local/cuda-11.4/lib64"
 # export PATH="$HOME/Projects/foss/node/node-v12.18.2-linux-x64/bin:$PATH"
 # JetBrains DataGrip
 # export PATH="$PATH:/home/lukebayes/src/DataGrip-2021.2.1/bin"
-
-export PICO_SDK_PATH=/home/lukebayes/Projects/foss/raspberrpi/pico-sdk
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
